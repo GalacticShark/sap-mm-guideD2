@@ -1,0 +1,435 @@
+
+<h2 class="sr-only">SAP Introduction - Full Study Guide for Materials Management</h2>
+
+<style>
+  .sg-wrap { font-family: var(--font-sans); max-width: 680px; padding: 0.5rem 0 2rem; }
+  .sg-header { margin-bottom: 2rem; }
+  .sg-title { font-size: 22px; font-weight: 500; color: var(--color-text-primary); margin: 0 0 4px; }
+  .sg-sub { font-size: 14px; color: var(--color-text-secondary); margin: 0; }
+
+  .sg-section { margin-bottom: 1.5rem; border: 0.5px solid var(--color-border-tertiary); border-radius: var(--border-radius-lg); overflow: hidden; }
+  .sg-section-header { padding: 12px 16px; cursor: pointer; display: flex; align-items: center; justify-content: space-between; background: var(--color-background-secondary); user-select: none; }
+  .sg-section-header:hover { background: var(--color-background-tertiary); }
+  .sg-section-label { display: flex; align-items: center; gap: 10px; }
+  .sg-badge { font-size: 11px; font-weight: 500; padding: 2px 8px; border-radius: 20px; }
+  .sg-section-title { font-size: 15px; font-weight: 500; color: var(--color-text-primary); }
+  .sg-chevron { font-size: 12px; color: var(--color-text-secondary); transition: transform 0.2s; }
+  .sg-chevron.open { transform: rotate(180deg); }
+  .sg-body { padding: 16px; background: var(--color-background-primary); display: none; border-top: 0.5px solid var(--color-border-tertiary); }
+  .sg-body.open { display: block; }
+
+  .sg-tag-outdated { background: #FAECE7; color: #993C1D; }
+  .sg-tag-core { background: #E1F5EE; color: #0F6E56; }
+  .sg-tag-mm { background: #E6F1FB; color: #185FA5; }
+  .sg-tag-context { background: #F1EFE8; color: #5F5E5A; }
+
+  .outdated-block { background: #FAECE7; border-left: 3px solid #D85A30; border-radius: 0 var(--border-radius-md) var(--border-radius-md) 0; padding: 10px 14px; margin: 12px 0; }
+  .outdated-block .ot-label { font-size: 11px; font-weight: 500; color: #993C1D; margin: 0 0 4px; letter-spacing: 0.04em; }
+  .outdated-block .ot-text { font-size: 14px; color: #712B13; margin: 0; line-height: 1.6; }
+
+  .modern-block { background: #E1F5EE; border-left: 3px solid #1D9E75; border-radius: 0 var(--border-radius-md) var(--border-radius-md) 0; padding: 10px 14px; margin: 12px 0; }
+  .modern-block .mt-label { font-size: 11px; font-weight: 500; color: #0F6E56; margin: 0 0 4px; letter-spacing: 0.04em; }
+  .modern-block .mt-text { font-size: 14px; color: #085041; margin: 0; line-height: 1.6; }
+
+  .mm-block { background: #E6F1FB; border-left: 3px solid #378ADD; border-radius: 0 var(--border-radius-md) var(--border-radius-md) 0; padding: 10px 14px; margin: 12px 0; }
+  .mm-block .mm-label { font-size: 11px; font-weight: 500; color: #185FA5; margin: 0 0 4px; letter-spacing: 0.04em; }
+  .mm-block .mm-text { font-size: 14px; color: #0C447C; margin: 0; line-height: 1.6; }
+
+  .sg-note { font-size: 14px; color: var(--color-text-primary); line-height: 1.7; margin: 0 0 10px; }
+  .sg-note:last-child { margin-bottom: 0; }
+
+  .kv-grid { display: grid; grid-template-columns: minmax(0,1fr) minmax(0,1fr); gap: 8px; margin: 10px 0; }
+  .kv-card { background: var(--color-background-secondary); border-radius: var(--border-radius-md); padding: 10px 12px; }
+  .kv-label { font-size: 11px; color: var(--color-text-secondary); margin: 0 0 2px; }
+  .kv-val { font-size: 13px; color: var(--color-text-primary); font-weight: 500; margin: 0; line-height: 1.5; }
+
+  .mod-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(100px, 1fr)); gap: 8px; margin: 10px 0; }
+  .mod-card { background: var(--color-background-secondary); border-radius: var(--border-radius-md); padding: 8px 10px; text-align: center; }
+  .mod-abbr { font-size: 16px; font-weight: 500; color: var(--color-text-primary); margin: 0; }
+  .mod-name { font-size: 11px; color: var(--color-text-secondary); margin: 2px 0 0; }
+  .mod-card.highlight { background: #E6F1FB; border: 0.5px solid #378ADD; }
+  .mod-card.highlight .mod-abbr { color: #185FA5; }
+  .mod-card.highlight .mod-name { color: #185FA5; }
+
+  .flow-row { display: flex; align-items: center; gap: 6px; flex-wrap: wrap; margin: 10px 0; }
+  .flow-step { background: var(--color-background-secondary); border: 0.5px solid var(--color-border-tertiary); border-radius: var(--border-radius-md); padding: 6px 12px; font-size: 13px; color: var(--color-text-primary); white-space: nowrap; }
+  .flow-step.mm-step { background: #E6F1FB; border-color: #378ADD; color: #0C447C; font-weight: 500; }
+  .flow-arrow { color: var(--color-text-secondary); font-size: 12px; }
+
+  .char-grid { display: grid; grid-template-columns: minmax(0,1fr) minmax(0,1fr); gap: 8px; margin: 10px 0; }
+  .char-card { background: var(--color-background-secondary); border-radius: var(--border-radius-md); padding: 10px 12px; }
+  .char-name { font-size: 13px; font-weight: 500; color: var(--color-text-primary); margin: 0 0 4px; }
+  .char-desc { font-size: 12px; color: var(--color-text-secondary); margin: 0; line-height: 1.5; }
+
+  .chain-table { width: 100%; border-collapse: collapse; font-size: 13px; margin: 10px 0; }
+  .chain-table th { background: var(--color-background-secondary); text-align: left; padding: 8px 10px; font-weight: 500; font-size: 12px; color: var(--color-text-secondary); border-bottom: 0.5px solid var(--color-border-tertiary); }
+  .chain-table td { padding: 8px 10px; border-bottom: 0.5px solid var(--color-border-tertiary); vertical-align: top; color: var(--color-text-primary); line-height: 1.5; }
+  .chain-table tr:last-child td { border-bottom: none; }
+  .chain-table tr.mm-row td { background: #E6F1FB; }
+  .chain-table tr.mm-row td:first-child { font-weight: 500; color: #185FA5; }
+
+  .erp-timeline { margin: 12px 0; }
+  .erp-era { display: flex; gap: 12px; align-items: flex-start; margin-bottom: 12px; }
+  .era-decade { font-size: 12px; font-weight: 500; color: var(--color-text-secondary); min-width: 44px; padding-top: 2px; }
+  .era-bar { flex: 1; }
+  .era-name { font-size: 13px; font-weight: 500; color: var(--color-text-primary); margin: 0 0 2px; }
+  .era-desc { font-size: 12px; color: var(--color-text-secondary); margin: 0; line-height: 1.5; }
+  .era-dot { width: 8px; height: 8px; border-radius: 50%; background: #378ADD; margin-top: 4px; flex-shrink: 0; }
+
+  .sg-divider { border: none; border-top: 0.5px solid var(--color-border-tertiary); margin: 14px 0; }
+
+  .tcode-row { display: flex; align-items: center; gap: 8px; padding: 6px 0; border-bottom: 0.5px solid var(--color-border-tertiary); }
+  .tcode-row:last-child { border-bottom: none; }
+  .tcode { font-family: var(--font-mono); font-size: 12px; background: var(--color-background-secondary); padding: 2px 8px; border-radius: var(--border-radius-md); color: var(--color-text-primary); min-width: 70px; }
+  .tcode-desc { font-size: 13px; color: var(--color-text-primary); }
+
+  .progress-bar { height: 4px; background: var(--color-border-tertiary); border-radius: 2px; margin-top: 8px; }
+  .progress-fill { height: 100%; border-radius: 2px; background: #378ADD; }
+</style>
+
+<div class="sg-wrap">
+  <div class="sg-header">
+    <p class="sg-title">SAP introduction — study guide</p>
+    <p class="sg-sub">Materials Management focus · 18 slides · Click each section to expand</p>
+    <div class="progress-bar"><div class="progress-fill" id="progress" style="width:0%"></div></div>
+  </div>
+
+  <!-- Section 1 -->
+  <div class="sg-section">
+    <div class="sg-section-header" onclick="toggle(this)">
+      <div class="sg-section-label">
+        <span class="sg-badge sg-tag-context">Slides 1–3</span>
+        <span class="sg-section-title">What SAP is and why it dominates</span>
+      </div>
+      <span class="sg-chevron">▼</span>
+    </div>
+    <div class="sg-body">
+      <p class="sg-note">SAP stands for Systems, Applications and Products in Data Processing. Founded in 1972 by five ex-IBM engineers in Germany. It is the world's leading ERP platform — the software companies use to run their entire operations from one system.</p>
+      <div class="kv-grid">
+        <div class="kv-card"><p class="kv-label">Founded</p><p class="kv-val">1972, Germany</p></div>
+        <div class="kv-card"><p class="kv-label">Market position</p><p class="kv-val">#1 ERP globally</p></div>
+        <div class="kv-card"><p class="kv-label">Key strength</p><p class="kv-val">Analytics, ERP, Mobility</p></div>
+        <div class="kv-card"><p class="kv-label">Scale</p><p class="kv-val">87% of Forbes Global 2000</p></div>
+      </div>
+      <div class="outdated-block">
+        <p class="ot-label">OUTDATED — slide 3 figures</p>
+        <p class="ot-text">Revenue "$19B", 74,400 employees, 291,000 customers are all old (~2013 era). Current figures: $36B+ revenue, 105,000+ employees, 400,000+ customers. Don't memorize the numbers — memorize the dominance.</p>
+      </div>
+      <p class="sg-note">The key stat that still holds: 74% of the world's transaction revenue touches an SAP system. That's why knowing SAP is a career asset regardless of which module you work in.</p>
+    </div>
+  </div>
+
+  <!-- Section 2 -->
+  <div class="sg-section">
+    <div class="sg-section-header" onclick="toggle(this)">
+      <div class="sg-section-label">
+        <span class="sg-badge sg-tag-outdated">Slide 4</span>
+        <span class="sg-section-title">Competitive landscape (outdated)</span>
+      </div>
+      <span class="sg-chevron">▼</span>
+    </div>
+    <div class="sg-body">
+      <p class="sg-note">The 2013 Gartner chart shows SAP at 24% market share vs Oracle 12%, Microsoft 5%, Infor 6%, Sage 6%, others 37%.</p>
+      <div class="outdated-block">
+        <p class="ot-label">OUTDATED — 2013 data</p>
+        <p class="ot-text">This entire chart is pre-cloud. The ERP landscape shifted dramatically since 2013. Workday emerged as a major HR/Finance cloud ERP. Oracle Cloud grew. Microsoft Dynamics 365 expanded significantly. The market is now cloud-first — but SAP is still #1.</p>
+      </div>
+      <div class="modern-block">
+        <p class="mt-label">CURRENT (2025)</p>
+        <p class="mt-text">SAP holds ~24–28% of the ERP market still, but competitors are all cloud-native now. SAP's response is S/4HANA Cloud and RISE with SAP (cloud migration program). Understanding competitor landscape matters if you're ever in a pre-sales or consulting role.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Section 3 -->
+  <div class="sg-section">
+    <div class="sg-section-header" onclick="toggle(this)">
+      <div class="sg-section-label">
+        <span class="sg-badge sg-tag-context">Slide 5</span>
+        <span class="sg-section-title">SAP's product evolution timeline</span>
+      </div>
+      <span class="sg-chevron">▼</span>
+    </div>
+    <div class="sg-body">
+      <div class="erp-timeline">
+        <div class="erp-era">
+          <span class="era-decade">1970s</span>
+          <div class="era-dot"></div>
+          <div class="era-bar"><p class="era-name">R1 — Stand-alone mainframe</p><p class="era-desc">First SAP product. Ran on a single mainframe. Very limited integration.</p></div>
+        </div>
+        <div class="erp-era">
+          <span class="era-decade">1980s</span>
+          <div class="era-dot"></div>
+          <div class="era-bar"><p class="era-name">R2 — Mainframe</p><p class="era-desc">Improved mainframe system. Still centralized, no distributed architecture.</p></div>
+        </div>
+        <div class="erp-era">
+          <span class="era-decade">1990s</span>
+          <div class="era-dot"></div>
+          <div class="era-bar"><p class="era-name">R3 — Client/Server</p><p class="era-desc">The breakthrough product. Moved to client-server model. Introduced the modular architecture (MM, FI, SD, PP...) that still underpins SAP today.</p></div>
+        </div>
+        <div class="erp-era">
+          <span class="era-decade">2000s</span>
+          <div class="era-dot"></div>
+          <div class="era-bar"><p class="era-name">ECC — NetWeaver (SOA)</p><p class="era-desc">ERP Central Component on NetWeaver platform. Service-Oriented Architecture. Where most companies still are today (being migrated off).</p></div>
+        </div>
+        <div class="erp-era">
+          <span class="era-decade">2015+</span>
+          <div class="era-dot" style="background:#1D9E75"></div>
+          <div class="era-bar"><p class="era-name" style="color:#0F6E56">S/4HANA — In-memory + BTP (cloud)</p><p class="era-desc" style="color:#085041">Current product. HANA in-memory database, Fiori UI, SAP BTP as the tech platform. The deck doesn't cover this — but this is what you're actually being trained for.</p></div>
+        </div>
+      </div>
+      <div class="outdated-block">
+        <p class="ot-label">OUTDATED</p>
+        <p class="ot-text">The slide ends at ECC/NetWeaver as if it's current. S/4HANA launched in 2015 and is the active product. NetWeaver is legacy. SAP BTP replaced NetWeaver's role as the technology platform.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Section 4 -->
+  <div class="sg-section">
+    <div class="sg-section-header" onclick="toggle(this)">
+      <div class="sg-section-label">
+        <span class="sg-badge sg-tag-outdated">Slides 6–7</span>
+        <span class="sg-section-title">NetWeaver & Business Suite architecture</span>
+      </div>
+      <span class="sg-chevron">▼</span>
+    </div>
+    <div class="sg-body">
+      <p class="sg-note">NetWeaver 7.0 was the integration and application platform that ECC ran on. The Business Suite stacked products (CRM, SRM, SCM, PLM, ERP) all on top of NetWeaver.</p>
+      <div class="kv-grid">
+        <div class="kv-card"><p class="kv-label">Enterprise Portal 7.0</p><p class="kv-val">Web access layer for SAP. Now replaced by Fiori launchpad.</p></div>
+        <div class="kv-card"><p class="kv-label">Process Integration 7.0</p><p class="kv-val">System-to-system messaging. Now SAP Integration Suite / BTP.</p></div>
+        <div class="kv-card"><p class="kv-label">Business Intelligence 7.0</p><p class="kv-val">Reporting layer. Now SAP Analytics Cloud (SAC).</p></div>
+        <div class="kv-card"><p class="kv-label">Master Data Mgmt 5.5</p><p class="kv-val">Central master data governance. Now SAP MDG in S/4HANA.</p></div>
+        <div class="kv-card"><p class="kv-label">SAPGUI</p><p class="kv-val">Still used in MM today. Transaction codes run here. Will coexist with Fiori for years.</p></div>
+        <div class="kv-card"><p class="kv-label">ABAP Web App Server</p><p class="kv-val">Runtime for ABAP programs. Still the foundation of S/4HANA.</p></div>
+      </div>
+      <div class="outdated-block">
+        <p class="ot-label">OUTDATED — architecture</p>
+        <p class="ot-text">Business Suite 7.0 (CRM 2007, SRM 2007, SCM 2007, SEM 2007) is all legacy. S/4HANA absorbed most of these. CRM → SAP CX / C4C. SRM → SAP Ariba. SCM → SAP IBP (Integrated Business Planning). The concept of separate "suite" products sitting beside ERP is gone — S/4HANA is one integrated system.</p>
+      </div>
+      <div class="mm-block">
+        <p class="mm-label">MM RELEVANCE</p>
+        <p class="mm-text">SAPGUI is still your primary interface for core MM transactions. Don't dismiss it as legacy — you will use it daily. SRM's Purchase Order / Requisitioning integration shown in slide 7 is historically important because it shows where MM procurement data flows to external supplier systems — now done via Ariba.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Section 5 -->
+  <div class="sg-section">
+    <div class="sg-section-header" onclick="toggle(this)">
+      <div class="sg-section-label">
+        <span class="sg-badge sg-tag-mm">Slide 8</span>
+        <span class="sg-section-title">SAP ECC module map — your module's position</span>
+      </div>
+      <span class="sg-chevron">▼</span>
+    </div>
+    <div class="sg-body">
+      <p class="sg-note">ECC (ERP Central Component) is the legacy system. All modules sit around a central ECC core sharing one database. This integration is the entire point of SAP.</p>
+      <div class="mod-grid">
+        <div class="mod-card highlight"><p class="mod-abbr">MM</p><p class="mod-name">Materials Mgmt — YOU</p></div>
+        <div class="mod-card"><p class="mod-abbr">FI</p><p class="mod-name">Financial Accounting</p></div>
+        <div class="mod-card"><p class="mod-abbr">CO</p><p class="mod-name">Controlling</p></div>
+        <div class="mod-card"><p class="mod-abbr">SD</p><p class="mod-name">Sales & Distribution</p></div>
+        <div class="mod-card"><p class="mod-abbr">PP</p><p class="mod-name">Production Planning</p></div>
+        <div class="mod-card"><p class="mod-abbr">QM</p><p class="mod-name">Quality Management</p></div>
+        <div class="mod-card"><p class="mod-abbr">PM</p><p class="mod-name">Plant Maintenance</p></div>
+        <div class="mod-card"><p class="mod-abbr">HR</p><p class="mod-name">Human Resources</p></div>
+        <div class="mod-card"><p class="mod-abbr">PS</p><p class="mod-name">Project System</p></div>
+        <div class="mod-card"><p class="mod-abbr">TR</p><p class="mod-name">Treasury</p></div>
+        <div class="mod-card"><p class="mod-abbr">WF</p><p class="mod-name">Workflow</p></div>
+        <div class="mod-card"><p class="mod-abbr">IS</p><p class="mod-name">Industry Solutions</p></div>
+      </div>
+      <hr class="sg-divider">
+      <p class="sg-note" style="font-weight:500">Key MM integrations — memorize these:</p>
+      <div class="char-grid">
+        <div class="char-card"><p class="char-name">MM ↔ FI</p><p class="char-desc">Every goods receipt and invoice verification automatically creates accounting documents in FI. No manual entry needed.</p></div>
+        <div class="char-card"><p class="char-name">MM ↔ PP</p><p class="char-desc">Production Planning triggers MRP, which generates purchase requisitions in MM for materials needed.</p></div>
+        <div class="char-card"><p class="char-name">MM ↔ SD</p><p class="char-desc">Sales orders in SD consume inventory tracked in MM. Availability checks run against MM stock data.</p></div>
+        <div class="char-card"><p class="char-name">MM ↔ QM</p><p class="char-desc">Goods receipts can trigger quality inspection lots before stock is released for use.</p></div>
+      </div>
+      <div class="modern-block">
+        <p class="mt-label">S/4HANA STATUS</p>
+        <p class="mt-text">All these modules and their integrations carry over identically into S/4HANA. The abbreviations, the cross-module flows, and the logic are the same. What changed: the database is HANA (in-memory), the UI is Fiori, and some backend tables restructured. The functional behavior is the same.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Section 6 -->
+  <div class="sg-section">
+    <div class="sg-section-header" onclick="toggle(this)">
+      <div class="sg-section-label">
+        <span class="sg-badge sg-tag-core">Slides 9–11</span>
+        <span class="sg-section-title">What ERP is — core concepts</span>
+      </div>
+      <span class="sg-chevron">▼</span>
+    </div>
+    <div class="sg-body">
+      <p class="sg-note">ERP (Enterprise Resource Planning) is business management software that integrates all company functions into one system with a central database. Before ERP, every department had separate software that didn't talk to each other.</p>
+      <hr class="sg-divider">
+      <p class="sg-note" style="font-weight:500">5 ERP characteristics — all apply directly to MM:</p>
+      <div class="char-grid">
+        <div class="char-card"><p class="char-name">Integrated system</p><p class="char-desc">A GR (Goods Receipt) in MM auto-creates an accounting document in FI. Zero manual re-entry between modules.</p></div>
+        <div class="char-card"><p class="char-name">Real time</p><p class="char-desc">Stock levels update the moment you post a goods movement. No batch delays. Inventory is always live.</p></div>
+        <div class="char-card"><p class="char-name">Best practice</p><p class="char-desc">SAP enforces the P2P process: PR → PO → GR → Invoice → Payment. You can't skip steps without specific config.</p></div>
+        <div class="char-card"><p class="char-name">Customizing (config)</p><p class="char-desc">MM is heavily configurable in IMG — plant parameters, valuation classes, movement types, number ranges, etc.</p></div>
+        <div class="char-card"><p class="char-name">Process oriented</p><p class="char-desc">MM is built around Procure-to-Pay. Not around individual functions — around end-to-end business processes.</p></div>
+      </div>
+      <hr class="sg-divider">
+      <p class="sg-note" style="font-weight:500">ERP components simplified (slide 11):</p>
+      <div class="kv-grid">
+        <div class="kv-card"><p class="kv-label">Enterprise</p><p class="kv-val">A firm/company that buys, makes, sells, ships products or services</p></div>
+        <div class="kv-card"><p class="kv-label">Resource</p><p class="kv-val">Factors of production — Land, Labor, Capital. In MM context: materials and inventory</p></div>
+        <div class="kv-card"><p class="kv-label">Planning</p><p class="kv-val">Organizing activities to achieve a goal. In MM: MRP, procurement planning, stock planning</p></div>
+        <div class="kv-card"><p class="kv-label">Integration</p><p class="kv-val">The whole point — one database, every department, no silos</p></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Section 7 -->
+  <div class="sg-section">
+    <div class="sg-section-header" onclick="toggle(this)">
+      <div class="sg-section-label">
+        <span class="sg-badge sg-tag-core">Slides 12–13</span>
+        <span class="sg-section-title">ERP evolution — why MRP history matters for MM</span>
+      </div>
+      <span class="sg-chevron">▼</span>
+    </div>
+    <div class="sg-body">
+      <div class="erp-timeline">
+        <div class="erp-era">
+          <span class="era-decade">1970s</span>
+          <div class="era-dot"></div>
+          <div class="era-bar"><p class="era-name">MRP — Material Requirements Planning</p><p class="era-desc">Factory material inventory. Emphasis on physical assets. Calculate what materials to order and when. This is the direct ancestor of SAP MM's MRP functionality.</p></div>
+        </div>
+        <div class="erp-era">
+          <span class="era-decade">1980s</span>
+          <div class="era-dot"></div>
+          <div class="era-bar"><p class="era-name">MRP II — Manufacturing Resource Planning</p><p class="era-desc">Expanded beyond materials to all factory resources — machines, labor, capacity. Added production scheduling.</p></div>
+        </div>
+        <div class="erp-era">
+          <span class="era-decade">1990s</span>
+          <div class="era-dot"></div>
+          <div class="era-bar"><p class="era-name">ERP — Enterprise Resource Planning</p><p class="era-desc">Added departmental modules: HR, general ledger, purchase orders, analytic CRM. Moved toward intangible assets. This is when SAP R3 was the dominant player.</p></div>
+        </div>
+        <div class="erp-era">
+          <span class="era-decade">2000s</span>
+          <div class="era-dot"></div>
+          <div class="era-bar"><p class="era-name">ERP II — Extended ERP</p><p class="era-desc">ERP + external actors. Added CRM, SCM, and other stakeholder modules. Global systems. SAP Business Suite era.</p></div>
+        </div>
+      </div>
+      <div class="mm-block">
+        <p class="mm-label">WHY THIS MATTERS FOR MM</p>
+        <p class="mm-text">SAP MM's MRP (transactions MD01/MD02) is the direct descendant of the 1970s MRP concept. When you run MRP in SAP, you're executing the same logic: calculate what materials are needed, when, and in what quantities based on demand. Understanding this history makes MRP click faster. MM didn't appear from nowhere — it's 50+ years of manufacturing planning logic baked into software.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Section 8 -->
+  <div class="sg-section">
+    <div class="sg-section-header" onclick="toggle(this)">
+      <div class="sg-section-label">
+        <span class="sg-badge sg-tag-mm">Slides 15–18</span>
+        <span class="sg-section-title">Value chain — where MM lives in a company</span>
+      </div>
+      <span class="sg-chevron">▼</span>
+    </div>
+    <div class="sg-body">
+      <p class="sg-note">Porter's Value Chain divides a firm's activities into Primary (value-creating) and Support (enabling) activities. Value Added minus Cost equals Margin. Understanding this tells you exactly why MM exists.</p>
+      <table class="chain-table">
+        <thead><tr><th>Activity</th><th>Type</th><th>MM role</th></tr></thead>
+        <tbody>
+          <tr class="mm-row"><td>Inbound logistics</td><td>Primary</td><td>MM owns this — receiving, raw material control, quality control on receipt, warehouse management</td></tr>
+          <tr><td>Operations</td><td>Primary</td><td>MM supports via inventory availability for production. Links to PP module.</td></tr>
+          <tr><td>Outbound logistics</td><td>Primary</td><td>Finished goods, delivery, invoicing — primarily SD, but MM tracks finished stock</td></tr>
+          <tr><td>Sales & marketing</td><td>Primary</td><td>Mostly SD, but stock availability checks hit MM data</td></tr>
+          <tr><td>Services</td><td>Primary</td><td>Warranty, maintenance parts — PM module, uses MM for spare parts</td></tr>
+          <tr class="mm-row"><td>Procurement</td><td>Support</td><td>MM owns this entirely — supplier management, purchase orders, specification, subcontracting</td></tr>
+          <tr><td>HR Management</td><td>Support</td><td>HR module</td></tr>
+          <tr><td>Tech Development</td><td>Support</td><td>IT/R&D — PM, PS modules</td></tr>
+          <tr><td>Infrastructure</td><td>Support</td><td>Legal, accounting, financial management — FI/CO modules</td></tr>
+        </tbody>
+      </table>
+      <div class="mm-block">
+        <p class="mm-label">KEY TAKEAWAY</p>
+        <p class="mm-text">MM controls the left side of the value chain — where physical goods enter the company. Inbound Logistics + Procurement support activity = MM's domain. This is your justification in any business conversation for why MM is critical. No materials in = no production = no revenue.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Section 9 — Bonus MM Essentials -->
+  <div class="sg-section">
+    <div class="sg-section-header" onclick="toggle(this)">
+      <div class="sg-section-label">
+        <span class="sg-badge sg-tag-mm">Bonus</span>
+        <span class="sg-section-title">MM essentials beyond the deck — know these</span>
+      </div>
+      <span class="sg-chevron">▼</span>
+    </div>
+    <div class="sg-body">
+      <p class="sg-note" style="font-weight:500">The Procure-to-Pay (P2P) process — your core flow:</p>
+      <div class="flow-row">
+        <div class="flow-step mm-step">PR (ME51N)</div>
+        <span class="flow-arrow">→</span>
+        <div class="flow-step">RFQ (ME41)</div>
+        <span class="flow-arrow">→</span>
+        <div class="flow-step mm-step">PO (ME21N)</div>
+        <span class="flow-arrow">→</span>
+        <div class="flow-step mm-step">GR (MIGO)</div>
+        <span class="flow-arrow">→</span>
+        <div class="flow-step mm-step">Invoice (MIRO)</div>
+        <span class="flow-arrow">→</span>
+        <div class="flow-step">Payment (FI)</div>
+      </div>
+      <hr class="sg-divider">
+      <p class="sg-note" style="font-weight:500">Key transaction codes:</p>
+      <div class="tcode-row"><span class="tcode">ME51N</span><span class="tcode-desc">Create Purchase Requisition</span></div>
+      <div class="tcode-row"><span class="tcode">ME21N</span><span class="tcode-desc">Create Purchase Order</span></div>
+      <div class="tcode-row"><span class="tcode">ME22N</span><span class="tcode-desc">Change Purchase Order</span></div>
+      <div class="tcode-row"><span class="tcode">ME23N</span><span class="tcode-desc">Display Purchase Order</span></div>
+      <div class="tcode-row"><span class="tcode">MIGO</span><span class="tcode-desc">Goods Movement (GR, GI, Transfer Posting)</span></div>
+      <div class="tcode-row"><span class="tcode">MIRO</span><span class="tcode-desc">Invoice Verification (Logistics Invoice Verification)</span></div>
+      <div class="tcode-row"><span class="tcode">MM01</span><span class="tcode-desc">Create Material Master</span></div>
+      <div class="tcode-row"><span class="tcode">XK01</span><span class="tcode-desc">Create Vendor Master (Central)</span></div>
+      <div class="tcode-row"><span class="tcode">ME11</span><span class="tcode-desc">Create Purchasing Info Record</span></div>
+      <div class="tcode-row"><span class="tcode">MD01</span><span class="tcode-desc">Run MRP (Total Planning)</span></div>
+      <div class="tcode-row"><span class="tcode">MMBE</span><span class="tcode-desc">Stock Overview</span></div>
+      <hr class="sg-divider">
+      <p class="sg-note" style="font-weight:500">MM organizational structure — know which level each lives at:</p>
+      <div class="char-grid">
+        <div class="char-card"><p class="char-name">Client</p><p class="char-desc">Top level. One SAP system. All data below inherits from client.</p></div>
+        <div class="char-card"><p class="char-name">Company Code</p><p class="char-desc">Legal entity. Financial statements produced here. Vendor master has Company Code data.</p></div>
+        <div class="char-card"><p class="char-name">Plant</p><p class="char-desc">Production/warehouse location. Material Master has plant-level data (MRP, purchasing views).</p></div>
+        <div class="char-card"><p class="char-name">Storage Location</p><p class="char-desc">Physical storage area within a plant. Stock is tracked here.</p></div>
+        <div class="char-card"><p class="char-name">Purchasing Org</p><p class="char-desc">Negotiates with vendors. Vendor master has Purchasing Org data.</p></div>
+        <div class="char-card"><p class="char-name">Purchasing Group</p><p class="char-desc">Buyer/team responsible for specific materials. Assigned on PO line items.</p></div>
+      </div>
+      <hr class="sg-divider">
+      <p class="sg-note" style="font-weight:500">Key MM master data:</p>
+      <div class="char-grid">
+        <div class="char-card"><p class="char-name">Material Master</p><p class="char-desc">Central record for every material. Views include: Basic Data, MRP, Purchasing, Plant Data/Storage, Accounting, Costing.</p></div>
+        <div class="char-card"><p class="char-name">Vendor Master</p><p class="char-desc">Supplier data. Three levels: General Data (client), Company Code (FI), Purchasing Org (MM).</p></div>
+        <div class="char-card"><p class="char-name">Purchasing Info Record</p><p class="char-desc">Links material to vendor with pricing. Auto-populates POs. Transaction ME11.</p></div>
+        <div class="char-card"><p class="char-name">Source List</p><p class="char-desc">Defines approved vendors for a material at plant level. Can enforce single sourcing.</p></div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<script>
+  function toggle(header) {
+    const body = header.nextElementSibling;
+    const chevron = header.querySelector('.sg-chevron');
+    const isOpen = body.classList.contains('open');
+    body.classList.toggle('open', !isOpen);
+    chevron.classList.toggle('open', !isOpen);
+    updateProgress();
+  }
+
+  function updateProgress() {
+    const total = document.querySelectorAll('.sg-body').length;
+    const open = document.querySelectorAll('.sg-body.open').length;
+    document.getElementById('progress').style.width = Math.round((open/total)*100) + '%';
+  }
+</script>
