@@ -1,11 +1,13 @@
-
-<h2 class="sr-only">SAP Introduction - Full Study Guide for Materials Management</h2>
+ <h2 class="sr-only">SAP Training — Full Study Guide</h2>
 
 <style>
   .sg-wrap { font-family: var(--font-sans); max-width: 680px; padding: 0.5rem 0 2rem; }
   .sg-header { margin-bottom: 2rem; }
   .sg-title { font-size: 22px; font-weight: 500; color: var(--color-text-primary); margin: 0 0 4px; }
   .sg-sub { font-size: 14px; color: var(--color-text-secondary); margin: 0; }
+
+  .day-label { font-size: 13px; font-weight: 600; color: var(--color-text-secondary); letter-spacing: .06em; text-transform: uppercase; margin: 1.75rem 0 .6rem; padding-bottom: 6px; border-bottom: 1.5px solid var(--color-border-tertiary); }
+  .day-label:first-of-type { margin-top: .25rem; }
 
   .sg-section { margin-bottom: 1.5rem; border: 0.5px solid var(--color-border-tertiary); border-radius: var(--border-radius-lg); overflow: hidden; }
   .sg-section-header { padding: 12px 16px; cursor: pointer; display: flex; align-items: center; justify-content: space-between; background: var(--color-background-secondary); user-select: none; }
@@ -18,31 +20,52 @@
   .sg-body { padding: 16px; background: var(--color-background-primary); display: none; border-top: 0.5px solid var(--color-border-tertiary); }
   .sg-body.open { display: block; }
 
-  .sg-tag-outdated { background: #FAECE7; color: #993C1D; }
-  .sg-tag-core { background: #E1F5EE; color: #0F6E56; }
-  .sg-tag-mm { background: #E6F1FB; color: #185FA5; }
-  .sg-tag-context { background: #F1EFE8; color: #5F5E5A; }
+  /* badges */
+  .sg-tag-blue    { background: #E6F1FB; color: #185FA5; }
+  .sg-tag-green   { background: #E1F5EE; color: #0F6E56; }
+  .sg-tag-amber   { background: #FAEEDA; color: #854F0B; }
+  .sg-tag-gray    { background: #F1EFE8; color: #5F5E5A; }
+  .sg-tag-outdated{ background: #FAECE7; color: #993C1D; }
 
+  /* callout blocks */
   .outdated-block { background: #FAECE7; border-left: 3px solid #D85A30; border-radius: 0 var(--border-radius-md) var(--border-radius-md) 0; padding: 10px 14px; margin: 12px 0; }
   .outdated-block .ot-label { font-size: 11px; font-weight: 500; color: #993C1D; margin: 0 0 4px; letter-spacing: 0.04em; }
-  .outdated-block .ot-text { font-size: 14px; color: #712B13; margin: 0; line-height: 1.6; }
+  .outdated-block .ot-text  { font-size: 14px; color: #712B13; margin: 0; line-height: 1.6; }
 
   .modern-block { background: #E1F5EE; border-left: 3px solid #1D9E75; border-radius: 0 var(--border-radius-md) var(--border-radius-md) 0; padding: 10px 14px; margin: 12px 0; }
   .modern-block .mt-label { font-size: 11px; font-weight: 500; color: #0F6E56; margin: 0 0 4px; letter-spacing: 0.04em; }
-  .modern-block .mt-text { font-size: 14px; color: #085041; margin: 0; line-height: 1.6; }
+  .modern-block .mt-text  { font-size: 14px; color: #085041; margin: 0; line-height: 1.6; }
 
-  .mm-block { background: #E6F1FB; border-left: 3px solid #378ADD; border-radius: 0 var(--border-radius-md) var(--border-radius-md) 0; padding: 10px 14px; margin: 12px 0; }
-  .mm-block .mm-label { font-size: 11px; font-weight: 500; color: #185FA5; margin: 0 0 4px; letter-spacing: 0.04em; }
-  .mm-block .mm-text { font-size: 14px; color: #0C447C; margin: 0; line-height: 1.6; }
+  .info-block { background: #E6F1FB; border-left: 3px solid #378ADD; border-radius: 0 var(--border-radius-md) var(--border-radius-md) 0; padding: 10px 14px; margin: 12px 0; }
+  .info-block .ib-label { font-size: 11px; font-weight: 500; color: #185FA5; margin: 0 0 4px; letter-spacing: 0.04em; }
+  .info-block .ib-text  { font-size: 14px; color: #0C447C; margin: 0; line-height: 1.6; }
 
+  .warn-block { background: #FAEEDA; border-left: 3px solid #EF9F27; border-radius: 0 var(--border-radius-md) var(--border-radius-md) 0; padding: 10px 14px; margin: 12px 0; }
+  .warn-block .wt-label { font-size: 11px; font-weight: 500; color: #854F0B; margin: 0 0 4px; letter-spacing: 0.04em; }
+  .warn-block .wt-text  { font-size: 14px; color: #633806; margin: 0; line-height: 1.6; }
+
+  .ok-block { background: #E1F5EE; border-left: 3px solid #1D9E75; border-radius: 0 var(--border-radius-md) var(--border-radius-md) 0; padding: 10px 14px; margin: 12px 0; }
+  .ok-block .ok-label { font-size: 11px; font-weight: 500; color: #0F6E56; margin: 0 0 4px; letter-spacing: 0.04em; }
+  .ok-block .ok-text  { font-size: 14px; color: #085041; margin: 0; line-height: 1.6; }
+
+  /* text */
   .sg-note { font-size: 14px; color: var(--color-text-primary); line-height: 1.7; margin: 0 0 10px; }
   .sg-note:last-child { margin-bottom: 0; }
+  .sg-divider { border: none; border-top: 0.5px solid var(--color-border-tertiary); margin: 14px 0; }
 
+  /* kv cards */
   .kv-grid { display: grid; grid-template-columns: minmax(0,1fr) minmax(0,1fr); gap: 8px; margin: 10px 0; }
+  .kv-grid3 { display: grid; grid-template-columns: repeat(3, minmax(0,1fr)); gap: 8px; margin: 10px 0; }
   .kv-card { background: var(--color-background-secondary); border-radius: var(--border-radius-md); padding: 10px 12px; }
+  .kv-card.hi { background: #E6F1FB; border: 0.5px solid #378ADD; }
+  .kv-card.hi .kv-label { color: #185FA5; }
+  .kv-card.hi .kv-val   { color: #0C447C; }
+  .kv-card.hi .kv-desc  { color: #185FA5; }
   .kv-label { font-size: 11px; color: var(--color-text-secondary); margin: 0 0 2px; }
-  .kv-val { font-size: 13px; color: var(--color-text-primary); font-weight: 500; margin: 0; line-height: 1.5; }
+  .kv-val   { font-size: 13px; color: var(--color-text-primary); font-weight: 500; margin: 0; line-height: 1.5; }
+  .kv-desc  { font-size: 12px; color: var(--color-text-secondary); margin: 3px 0 0; line-height: 1.5; }
 
+  /* module grid */
   .mod-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(100px, 1fr)); gap: 8px; margin: 10px 0; }
   .mod-card { background: var(--color-background-secondary); border-radius: var(--border-radius-md); padding: 8px 10px; text-align: center; }
   .mod-abbr { font-size: 16px; font-weight: 500; color: var(--color-text-primary); margin: 0; }
@@ -51,16 +74,39 @@
   .mod-card.highlight .mod-abbr { color: #185FA5; }
   .mod-card.highlight .mod-name { color: #185FA5; }
 
-  .flow-row { display: flex; align-items: center; gap: 6px; flex-wrap: wrap; margin: 10px 0; }
-  .flow-step { background: var(--color-background-secondary); border: 0.5px solid var(--color-border-tertiary); border-radius: var(--border-radius-md); padding: 6px 12px; font-size: 13px; color: var(--color-text-primary); white-space: nowrap; }
-  .flow-step.mm-step { background: #E6F1FB; border-color: #378ADD; color: #0C447C; font-weight: 500; }
-  .flow-arrow { color: var(--color-text-secondary); font-size: 12px; }
-
+  /* char/feature cards */
   .char-grid { display: grid; grid-template-columns: minmax(0,1fr) minmax(0,1fr); gap: 8px; margin: 10px 0; }
   .char-card { background: var(--color-background-secondary); border-radius: var(--border-radius-md); padding: 10px 12px; }
   .char-name { font-size: 13px; font-weight: 500; color: var(--color-text-primary); margin: 0 0 4px; }
   .char-desc { font-size: 12px; color: var(--color-text-secondary); margin: 0; line-height: 1.5; }
 
+  /* flow row */
+  .flow-row { display: flex; align-items: center; gap: 6px; flex-wrap: wrap; margin: 10px 0; }
+  .flow-step { background: var(--color-background-secondary); border: 0.5px solid var(--color-border-tertiary); border-radius: var(--border-radius-md); padding: 6px 12px; font-size: 13px; color: var(--color-text-primary); white-space: nowrap; }
+  .flow-step.blue  { background: #E6F1FB; border-color: #378ADD; color: #0C447C; font-weight: 500; }
+  .flow-step.green { background: #E1F5EE; border-color: #1D9E75; color: #085041; font-weight: 500; }
+  .flow-arrow { color: var(--color-text-secondary); font-size: 12px; }
+
+  /* timeline */
+  .erp-timeline { margin: 12px 0; }
+  .erp-era { display: flex; gap: 12px; align-items: flex-start; margin-bottom: 12px; }
+  .era-decade { font-size: 12px; font-weight: 500; color: var(--color-text-secondary); min-width: 44px; padding-top: 2px; }
+  .era-dot { width: 8px; height: 8px; border-radius: 50%; background: #378ADD; margin-top: 4px; flex-shrink: 0; }
+  .era-bar { flex: 1; }
+  .era-name { font-size: 13px; font-weight: 500; color: var(--color-text-primary); margin: 0 0 2px; }
+  .era-desc { font-size: 12px; color: var(--color-text-secondary); margin: 0; line-height: 1.5; }
+
+  /* org hierarchy */
+  .org-tree { margin: 12px 0; }
+  .org-row  { display: flex; align-items: stretch; gap: 0; margin-bottom: 2px; }
+  .org-node { flex: 1; padding: 8px 12px; border-radius: var(--border-radius-md); font-size: 13px; font-weight: 500; color: var(--color-text-primary); background: var(--color-background-secondary); border: 0.5px solid var(--color-border-tertiary); }
+  .org-node.l0 { background: #185FA5; color: #E6F1FB; border-color: #185FA5; }
+  .org-node.l1 { background: #378ADD; color: #E6F1FB; border-color: #378ADD; }
+  .org-node.l2 { background: #85B7EB; color: #042C53; border-color: #85B7EB; }
+  .org-node.l3 { background: #E6F1FB; color: #0C447C; border-color: #B5D4F4; }
+  .org-sub { font-size: 11px; opacity: .85; font-weight: 400; display: block; margin-top: 1px; }
+
+  /* chain table */
   .chain-table { width: 100%; border-collapse: collapse; font-size: 13px; margin: 10px 0; }
   .chain-table th { background: var(--color-background-secondary); text-align: left; padding: 8px 10px; font-weight: 500; font-size: 12px; color: var(--color-text-secondary); border-bottom: 0.5px solid var(--color-border-tertiary); }
   .chain-table td { padding: 8px 10px; border-bottom: 0.5px solid var(--color-border-tertiary); vertical-align: top; color: var(--color-text-primary); line-height: 1.5; }
@@ -68,37 +114,52 @@
   .chain-table tr.mm-row td { background: #E6F1FB; }
   .chain-table tr.mm-row td:first-child { font-weight: 500; color: #185FA5; }
 
-  .erp-timeline { margin: 12px 0; }
-  .erp-era { display: flex; gap: 12px; align-items: flex-start; margin-bottom: 12px; }
-  .era-decade { font-size: 12px; font-weight: 500; color: var(--color-text-secondary); min-width: 44px; padding-top: 2px; }
-  .era-bar { flex: 1; }
-  .era-name { font-size: 13px; font-weight: 500; color: var(--color-text-primary); margin: 0 0 2px; }
-  .era-desc { font-size: 12px; color: var(--color-text-secondary); margin: 0; line-height: 1.5; }
-  .era-dot { width: 8px; height: 8px; border-radius: 50%; background: #378ADD; margin-top: 4px; flex-shrink: 0; }
+  /* cycle grid */
+  .cycle-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin: 12px 0; }
+  .cyc-item { background: var(--color-background-secondary); border-radius: var(--border-radius-md); padding: 10px 12px; border-left: 3px solid var(--color-border-tertiary); }
+  .cyc-item.c1 { border-left-color: #378ADD; }
+  .cyc-item.c2 { border-left-color: #1D9E75; }
+  .cyc-item.c3 { border-left-color: #EF9F27; }
+  .cyc-item.c4 { border-left-color: #D85A30; }
+  .cyc-num  { font-size: 11px; color: var(--color-text-secondary); margin: 0 0 2px; }
+  .cyc-name { font-size: 13px; font-weight: 500; color: var(--color-text-primary); margin: 0 0 4px; }
+  .cyc-desc { font-size: 12px; color: var(--color-text-secondary); margin: 0; line-height: 1.5; }
 
-  .sg-divider { border: none; border-top: 0.5px solid var(--color-border-tertiary); margin: 14px 0; }
+  /* 3-way match */
+  .match-grid { display: grid; grid-template-columns: repeat(3, minmax(0,1fr)); gap: 8px; margin: 10px 0; }
+  .match-card { background: var(--color-background-secondary); border-radius: var(--border-radius-md); padding: 10px 12px; text-align: center; }
+  .match-icon { font-size: 20px; margin: 0 0 4px; }
+  .match-name { font-size: 12px; font-weight: 500; color: var(--color-text-primary); margin: 0 0 3px; }
+  .match-sub  { font-size: 11px; color: var(--color-text-secondary); margin: 0; }
 
+  /* tcode rows */
   .tcode-row { display: flex; align-items: center; gap: 8px; padding: 6px 0; border-bottom: 0.5px solid var(--color-border-tertiary); }
   .tcode-row:last-child { border-bottom: none; }
   .tcode { font-family: var(--font-mono); font-size: 12px; background: var(--color-background-secondary); padding: 2px 8px; border-radius: var(--border-radius-md); color: var(--color-text-primary); min-width: 70px; }
   .tcode-desc { font-size: 13px; color: var(--color-text-primary); }
 
-  .progress-bar { height: 4px; background: var(--color-border-tertiary); border-radius: 2px; margin-top: 8px; }
-  .progress-fill { height: 100%; border-radius: 2px; background: #378ADD; }
+  /* slide note callout */
+  .slide-note { font-size: 12px; color: var(--color-text-secondary); font-style: italic; margin: 8px 0 0; }
+
+  /* progress */
+  .progress-bar  { height: 4px; background: var(--color-border-tertiary); border-radius: 2px; margin-top: 8px; }
+  .progress-fill { height: 100%; border-radius: 2px; background: #378ADD; transition: width .3s; }
 </style>
 
 <div class="sg-wrap">
   <div class="sg-header">
-    <p class="sg-title">SAP introduction — study guide</p>
-    <p class="sg-sub">Materials Management focus · 18 slides · Click each section to expand</p>
+    <p class="sg-title">SAP training — study guide</p>
+    <p class="sg-sub">Day 2 · SAP Introduction &amp; MM overview &nbsp;·&nbsp; Day 3 · SAP Navigation &nbsp;·&nbsp; Day 4 · MM Procurement basics · Click to expand</p>
     <div class="progress-bar"><div class="progress-fill" id="progress" style="width:0%"></div></div>
   </div>
 
-  <!-- Section 1 -->
+  <!-- ═══════════════════════ DAY 2 ═══════════════════════ -->
+  <p class="day-label">Day 2 — SAP Introduction &amp; MM Overview</p>
+
   <div class="sg-section">
     <div class="sg-section-header" onclick="toggle(this)">
       <div class="sg-section-label">
-        <span class="sg-badge sg-tag-context">Slides 1–3</span>
+        <span class="sg-badge sg-tag-gray">Slides 1–3</span>
         <span class="sg-section-title">What SAP is and why it dominates</span>
       </div>
       <span class="sg-chevron">▼</span>
@@ -119,7 +180,6 @@
     </div>
   </div>
 
-  <!-- Section 2 -->
   <div class="sg-section">
     <div class="sg-section-header" onclick="toggle(this)">
       <div class="sg-section-label">
@@ -136,47 +196,26 @@
       </div>
       <div class="modern-block">
         <p class="mt-label">CURRENT (2025)</p>
-        <p class="mt-text">SAP holds ~24–28% of the ERP market still, but competitors are all cloud-native now. SAP's response is S/4HANA Cloud and RISE with SAP (cloud migration program). Understanding competitor landscape matters if you're ever in a pre-sales or consulting role.</p>
+        <p class="mt-text">SAP holds ~24–28% of the ERP market, but competitors are all cloud-native now. SAP's response is S/4HANA Cloud and RISE with SAP (cloud migration program). Understanding competitor landscape matters if you're ever in a pre-sales or consulting role.</p>
       </div>
     </div>
   </div>
 
-  <!-- Section 3 -->
   <div class="sg-section">
     <div class="sg-section-header" onclick="toggle(this)">
       <div class="sg-section-label">
-        <span class="sg-badge sg-tag-context">Slide 5</span>
-        <span class="sg-section-title">SAP's product evolution timeline</span>
+        <span class="sg-badge sg-tag-gray">Slide 5</span>
+        <span class="sg-section-title">SAP product evolution timeline</span>
       </div>
       <span class="sg-chevron">▼</span>
     </div>
     <div class="sg-body">
       <div class="erp-timeline">
-        <div class="erp-era">
-          <span class="era-decade">1970s</span>
-          <div class="era-dot"></div>
-          <div class="era-bar"><p class="era-name">R1 — Stand-alone mainframe</p><p class="era-desc">First SAP product. Ran on a single mainframe. Very limited integration.</p></div>
-        </div>
-        <div class="erp-era">
-          <span class="era-decade">1980s</span>
-          <div class="era-dot"></div>
-          <div class="era-bar"><p class="era-name">R2 — Mainframe</p><p class="era-desc">Improved mainframe system. Still centralized, no distributed architecture.</p></div>
-        </div>
-        <div class="erp-era">
-          <span class="era-decade">1990s</span>
-          <div class="era-dot"></div>
-          <div class="era-bar"><p class="era-name">R3 — Client/Server</p><p class="era-desc">The breakthrough product. Moved to client-server model. Introduced the modular architecture (MM, FI, SD, PP...) that still underpins SAP today.</p></div>
-        </div>
-        <div class="erp-era">
-          <span class="era-decade">2000s</span>
-          <div class="era-dot"></div>
-          <div class="era-bar"><p class="era-name">ECC — NetWeaver (SOA)</p><p class="era-desc">ERP Central Component on NetWeaver platform. Service-Oriented Architecture. Where most companies still are today (being migrated off).</p></div>
-        </div>
-        <div class="erp-era">
-          <span class="era-decade">2015+</span>
-          <div class="era-dot" style="background:#1D9E75"></div>
-          <div class="era-bar"><p class="era-name" style="color:#0F6E56">S/4HANA — In-memory + BTP (cloud)</p><p class="era-desc" style="color:#085041">Current product. HANA in-memory database, Fiori UI, SAP BTP as the tech platform. The deck doesn't cover this — but this is what you're actually being trained for.</p></div>
-        </div>
+        <div class="erp-era"><span class="era-decade">1970s</span><div class="era-dot"></div><div class="era-bar"><p class="era-name">R1 — Stand-alone mainframe</p><p class="era-desc">First SAP product. Ran on a single mainframe. Very limited integration.</p></div></div>
+        <div class="erp-era"><span class="era-decade">1980s</span><div class="era-dot"></div><div class="era-bar"><p class="era-name">R2 — Mainframe</p><p class="era-desc">Improved mainframe system. Still centralized, no distributed architecture.</p></div></div>
+        <div class="erp-era"><span class="era-decade">1990s</span><div class="era-dot"></div><div class="era-bar"><p class="era-name">R3 — Client/Server</p><p class="era-desc">The breakthrough product. Moved to client-server model. Introduced the modular architecture (MM, FI, SD, PP…) that still underpins SAP today.</p></div></div>
+        <div class="erp-era"><span class="era-decade">2000s</span><div class="era-dot"></div><div class="era-bar"><p class="era-name">ECC — NetWeaver (SOA)</p><p class="era-desc">ERP Central Component on NetWeaver platform. Service-Oriented Architecture. Where most companies still are today (being migrated off).</p></div></div>
+        <div class="erp-era"><span class="era-decade">2015+</span><div class="era-dot" style="background:#1D9E75"></div><div class="era-bar"><p class="era-name" style="color:#0F6E56">S/4HANA — In-memory + BTP (cloud)</p><p class="era-desc" style="color:#085041">Current product. HANA in-memory database, Fiori UI, SAP BTP as the tech platform. The deck doesn't cover this — but this is what you're actually being trained for.</p></div></div>
       </div>
       <div class="outdated-block">
         <p class="ot-label">OUTDATED</p>
@@ -185,41 +224,39 @@
     </div>
   </div>
 
-  <!-- Section 4 -->
   <div class="sg-section">
     <div class="sg-section-header" onclick="toggle(this)">
       <div class="sg-section-label">
         <span class="sg-badge sg-tag-outdated">Slides 6–7</span>
-        <span class="sg-section-title">NetWeaver & Business Suite architecture</span>
+        <span class="sg-section-title">NetWeaver &amp; Business Suite architecture</span>
       </div>
       <span class="sg-chevron">▼</span>
     </div>
     <div class="sg-body">
       <p class="sg-note">NetWeaver 7.0 was the integration and application platform that ECC ran on. The Business Suite stacked products (CRM, SRM, SCM, PLM, ERP) all on top of NetWeaver.</p>
       <div class="kv-grid">
-        <div class="kv-card"><p class="kv-label">Enterprise Portal 7.0</p><p class="kv-val">Web access layer for SAP. Now replaced by Fiori launchpad.</p></div>
-        <div class="kv-card"><p class="kv-label">Process Integration 7.0</p><p class="kv-val">System-to-system messaging. Now SAP Integration Suite / BTP.</p></div>
-        <div class="kv-card"><p class="kv-label">Business Intelligence 7.0</p><p class="kv-val">Reporting layer. Now SAP Analytics Cloud (SAC).</p></div>
-        <div class="kv-card"><p class="kv-label">Master Data Mgmt 5.5</p><p class="kv-val">Central master data governance. Now SAP MDG in S/4HANA.</p></div>
-        <div class="kv-card"><p class="kv-label">SAPGUI</p><p class="kv-val">Still used in MM today. Transaction codes run here. Will coexist with Fiori for years.</p></div>
-        <div class="kv-card"><p class="kv-label">ABAP Web App Server</p><p class="kv-val">Runtime for ABAP programs. Still the foundation of S/4HANA.</p></div>
+        <div class="kv-card"><p class="kv-label">Enterprise Portal 7.0</p><p class="kv-val">Web access layer for SAP</p><p class="kv-desc">Now replaced by Fiori launchpad.</p></div>
+        <div class="kv-card"><p class="kv-label">Process Integration 7.0</p><p class="kv-val">System-to-system messaging</p><p class="kv-desc">Now SAP Integration Suite / BTP.</p></div>
+        <div class="kv-card"><p class="kv-label">Business Intelligence 7.0</p><p class="kv-val">Reporting layer</p><p class="kv-desc">Now SAP Analytics Cloud (SAC).</p></div>
+        <div class="kv-card"><p class="kv-label">Master Data Mgmt 5.5</p><p class="kv-val">Central master data governance</p><p class="kv-desc">Now SAP MDG in S/4HANA.</p></div>
+        <div class="kv-card"><p class="kv-label">SAPGUI</p><p class="kv-val">Still used in MM today</p><p class="kv-desc">Transaction codes run here. Will coexist with Fiori for years.</p></div>
+        <div class="kv-card"><p class="kv-label">ABAP Web App Server</p><p class="kv-val">Runtime for ABAP programs</p><p class="kv-desc">Still the foundation of S/4HANA.</p></div>
       </div>
       <div class="outdated-block">
         <p class="ot-label">OUTDATED — architecture</p>
-        <p class="ot-text">Business Suite 7.0 (CRM 2007, SRM 2007, SCM 2007, SEM 2007) is all legacy. S/4HANA absorbed most of these. CRM → SAP CX / C4C. SRM → SAP Ariba. SCM → SAP IBP (Integrated Business Planning). The concept of separate "suite" products sitting beside ERP is gone — S/4HANA is one integrated system.</p>
+        <p class="ot-text">Business Suite 7.0 (CRM 2007, SRM 2007, SCM 2007) is all legacy. S/4HANA absorbed most of these. CRM → SAP CX/C4C. SRM → SAP Ariba. SCM → SAP IBP. The concept of separate "suite" products sitting beside ERP is gone — S/4HANA is one integrated system.</p>
       </div>
-      <div class="mm-block">
-        <p class="mm-label">MM RELEVANCE</p>
-        <p class="mm-text">SAPGUI is still your primary interface for core MM transactions. Don't dismiss it as legacy — you will use it daily. SRM's Purchase Order / Requisitioning integration shown in slide 7 is historically important because it shows where MM procurement data flows to external supplier systems — now done via Ariba.</p>
+      <div class="info-block">
+        <p class="ib-label">MM RELEVANCE</p>
+        <p class="ib-text">SAPGUI is still your primary interface for core MM transactions. Don't dismiss it as legacy — you will use it daily. SRM's Purchase Order/Requisitioning integration shown in slide 7 is historically important because it shows where MM procurement data flows to external supplier systems — now done via Ariba.</p>
       </div>
     </div>
   </div>
 
-  <!-- Section 5 -->
   <div class="sg-section">
     <div class="sg-section-header" onclick="toggle(this)">
       <div class="sg-section-label">
-        <span class="sg-badge sg-tag-mm">Slide 8</span>
+        <span class="sg-badge sg-tag-blue">Slide 8</span>
         <span class="sg-section-title">SAP ECC module map — your module's position</span>
       </div>
       <span class="sg-chevron">▼</span>
@@ -230,7 +267,7 @@
         <div class="mod-card highlight"><p class="mod-abbr">MM</p><p class="mod-name">Materials Mgmt — YOU</p></div>
         <div class="mod-card"><p class="mod-abbr">FI</p><p class="mod-name">Financial Accounting</p></div>
         <div class="mod-card"><p class="mod-abbr">CO</p><p class="mod-name">Controlling</p></div>
-        <div class="mod-card"><p class="mod-abbr">SD</p><p class="mod-name">Sales & Distribution</p></div>
+        <div class="mod-card"><p class="mod-abbr">SD</p><p class="mod-name">Sales &amp; Distribution</p></div>
         <div class="mod-card"><p class="mod-abbr">PP</p><p class="mod-name">Production Planning</p></div>
         <div class="mod-card"><p class="mod-abbr">QM</p><p class="mod-name">Quality Management</p></div>
         <div class="mod-card"><p class="mod-abbr">PM</p><p class="mod-name">Plant Maintenance</p></div>
@@ -250,16 +287,15 @@
       </div>
       <div class="modern-block">
         <p class="mt-label">S/4HANA STATUS</p>
-        <p class="mt-text">All these modules and their integrations carry over identically into S/4HANA. The abbreviations, the cross-module flows, and the logic are the same. What changed: the database is HANA (in-memory), the UI is Fiori, and some backend tables restructured. The functional behavior is the same.</p>
+        <p class="mt-text">All these modules and their integrations carry over identically into S/4HANA. The abbreviations, the cross-module flows, and the logic are the same. What changed: the database is HANA (in-memory), the UI is Fiori, and some backend tables were restructured. The functional behavior is the same.</p>
       </div>
     </div>
   </div>
 
-  <!-- Section 6 -->
   <div class="sg-section">
     <div class="sg-section-header" onclick="toggle(this)">
       <div class="sg-section-label">
-        <span class="sg-badge sg-tag-core">Slides 9–11</span>
+        <span class="sg-badge sg-tag-green">Slides 9–11</span>
         <span class="sg-section-title">What ERP is — core concepts</span>
       </div>
       <span class="sg-chevron">▼</span>
@@ -278,58 +314,40 @@
       <hr class="sg-divider">
       <p class="sg-note" style="font-weight:500">ERP components simplified (slide 11):</p>
       <div class="kv-grid">
-        <div class="kv-card"><p class="kv-label">Enterprise</p><p class="kv-val">A firm/company that buys, makes, sells, ships products or services</p></div>
-        <div class="kv-card"><p class="kv-label">Resource</p><p class="kv-val">Factors of production — Land, Labor, Capital. In MM context: materials and inventory</p></div>
-        <div class="kv-card"><p class="kv-label">Planning</p><p class="kv-val">Organizing activities to achieve a goal. In MM: MRP, procurement planning, stock planning</p></div>
-        <div class="kv-card"><p class="kv-label">Integration</p><p class="kv-val">The whole point — one database, every department, no silos</p></div>
+        <div class="kv-card"><p class="kv-label">Enterprise</p><p class="kv-val">A firm that buys, makes, sells, ships products or services</p></div>
+        <div class="kv-card"><p class="kv-label">Resource</p><p class="kv-val">Factors of production</p><p class="kv-desc">Land, Labor, Capital. In MM context: materials and inventory.</p></div>
+        <div class="kv-card"><p class="kv-label">Planning</p><p class="kv-val">Organizing activities to achieve a goal</p><p class="kv-desc">In MM: MRP, procurement planning, stock planning.</p></div>
+        <div class="kv-card"><p class="kv-label">Integration</p><p class="kv-val">One database, every department, no silos</p></div>
       </div>
     </div>
   </div>
 
-  <!-- Section 7 -->
   <div class="sg-section">
     <div class="sg-section-header" onclick="toggle(this)">
       <div class="sg-section-label">
-        <span class="sg-badge sg-tag-core">Slides 12–13</span>
+        <span class="sg-badge sg-tag-green">Slides 12–13</span>
         <span class="sg-section-title">ERP evolution — why MRP history matters for MM</span>
       </div>
       <span class="sg-chevron">▼</span>
     </div>
     <div class="sg-body">
       <div class="erp-timeline">
-        <div class="erp-era">
-          <span class="era-decade">1970s</span>
-          <div class="era-dot"></div>
-          <div class="era-bar"><p class="era-name">MRP — Material Requirements Planning</p><p class="era-desc">Factory material inventory. Emphasis on physical assets. Calculate what materials to order and when. This is the direct ancestor of SAP MM's MRP functionality.</p></div>
-        </div>
-        <div class="erp-era">
-          <span class="era-decade">1980s</span>
-          <div class="era-dot"></div>
-          <div class="era-bar"><p class="era-name">MRP II — Manufacturing Resource Planning</p><p class="era-desc">Expanded beyond materials to all factory resources — machines, labor, capacity. Added production scheduling.</p></div>
-        </div>
-        <div class="erp-era">
-          <span class="era-decade">1990s</span>
-          <div class="era-dot"></div>
-          <div class="era-bar"><p class="era-name">ERP — Enterprise Resource Planning</p><p class="era-desc">Added departmental modules: HR, general ledger, purchase orders, analytic CRM. Moved toward intangible assets. This is when SAP R3 was the dominant player.</p></div>
-        </div>
-        <div class="erp-era">
-          <span class="era-decade">2000s</span>
-          <div class="era-dot"></div>
-          <div class="era-bar"><p class="era-name">ERP II — Extended ERP</p><p class="era-desc">ERP + external actors. Added CRM, SCM, and other stakeholder modules. Global systems. SAP Business Suite era.</p></div>
-        </div>
+        <div class="erp-era"><span class="era-decade">1970s</span><div class="era-dot"></div><div class="era-bar"><p class="era-name">MRP — Material Requirements Planning</p><p class="era-desc">Factory material inventory. Calculate what materials to order and when. This is the direct ancestor of SAP MM's MRP functionality.</p></div></div>
+        <div class="erp-era"><span class="era-decade">1980s</span><div class="era-dot"></div><div class="era-bar"><p class="era-name">MRP II — Manufacturing Resource Planning</p><p class="era-desc">Expanded beyond materials to all factory resources — machines, labor, capacity. Added production scheduling.</p></div></div>
+        <div class="erp-era"><span class="era-decade">1990s</span><div class="era-dot"></div><div class="era-bar"><p class="era-name">ERP — Enterprise Resource Planning</p><p class="era-desc">Added departmental modules: HR, general ledger, purchase orders, CRM. This is when SAP R3 was the dominant player.</p></div></div>
+        <div class="erp-era"><span class="era-decade">2000s</span><div class="era-dot"></div><div class="era-bar"><p class="era-name">ERP II — Extended ERP</p><p class="era-desc">ERP + external actors. Added CRM, SCM, and other stakeholder modules. SAP Business Suite era.</p></div></div>
       </div>
-      <div class="mm-block">
-        <p class="mm-label">WHY THIS MATTERS FOR MM</p>
-        <p class="mm-text">SAP MM's MRP (transactions MD01/MD02) is the direct descendant of the 1970s MRP concept. When you run MRP in SAP, you're executing the same logic: calculate what materials are needed, when, and in what quantities based on demand. Understanding this history makes MRP click faster. MM didn't appear from nowhere — it's 50+ years of manufacturing planning logic baked into software.</p>
+      <div class="info-block">
+        <p class="ib-label">WHY THIS MATTERS FOR MM</p>
+        <p class="ib-text">SAP MM's MRP (transactions MD01/MD02) is the direct descendant of the 1970s MRP concept. When you run MRP in SAP, you're executing the same logic: calculate what materials are needed, when, and in what quantities. Understanding this history makes MRP click faster — it's 50+ years of manufacturing planning logic baked into software.</p>
       </div>
     </div>
   </div>
 
-  <!-- Section 8 -->
   <div class="sg-section">
     <div class="sg-section-header" onclick="toggle(this)">
       <div class="sg-section-label">
-        <span class="sg-badge sg-tag-mm">Slides 15–18</span>
+        <span class="sg-badge sg-tag-blue">Slides 15–18</span>
         <span class="sg-section-title">Value chain — where MM lives in a company</span>
       </div>
       <span class="sg-chevron">▼</span>
@@ -342,26 +360,25 @@
           <tr class="mm-row"><td>Inbound logistics</td><td>Primary</td><td>MM owns this — receiving, raw material control, quality control on receipt, warehouse management</td></tr>
           <tr><td>Operations</td><td>Primary</td><td>MM supports via inventory availability for production. Links to PP module.</td></tr>
           <tr><td>Outbound logistics</td><td>Primary</td><td>Finished goods, delivery, invoicing — primarily SD, but MM tracks finished stock</td></tr>
-          <tr><td>Sales & marketing</td><td>Primary</td><td>Mostly SD, but stock availability checks hit MM data</td></tr>
+          <tr><td>Sales &amp; marketing</td><td>Primary</td><td>Mostly SD, but stock availability checks hit MM data</td></tr>
           <tr><td>Services</td><td>Primary</td><td>Warranty, maintenance parts — PM module, uses MM for spare parts</td></tr>
           <tr class="mm-row"><td>Procurement</td><td>Support</td><td>MM owns this entirely — supplier management, purchase orders, specification, subcontracting</td></tr>
           <tr><td>HR Management</td><td>Support</td><td>HR module</td></tr>
-          <tr><td>Tech Development</td><td>Support</td><td>IT/R&D — PM, PS modules</td></tr>
+          <tr><td>Tech Development</td><td>Support</td><td>IT/R&amp;D — PM, PS modules</td></tr>
           <tr><td>Infrastructure</td><td>Support</td><td>Legal, accounting, financial management — FI/CO modules</td></tr>
         </tbody>
       </table>
-      <div class="mm-block">
-        <p class="mm-label">KEY TAKEAWAY</p>
-        <p class="mm-text">MM controls the left side of the value chain — where physical goods enter the company. Inbound Logistics + Procurement support activity = MM's domain. This is your justification in any business conversation for why MM is critical. No materials in = no production = no revenue.</p>
+      <div class="info-block">
+        <p class="ib-label">KEY TAKEAWAY</p>
+        <p class="ib-text">MM controls the left side of the value chain — where physical goods enter the company. Inbound Logistics + Procurement support activity = MM's domain. No materials in = no production = no revenue.</p>
       </div>
     </div>
   </div>
 
-  <!-- Section 9 — Bonus MM Essentials -->
   <div class="sg-section">
     <div class="sg-section-header" onclick="toggle(this)">
       <div class="sg-section-label">
-        <span class="sg-badge sg-tag-mm">Bonus</span>
+        <span class="sg-badge sg-tag-amber">D2 Bonus</span>
         <span class="sg-section-title">MM essentials beyond the deck — know these</span>
       </div>
       <span class="sg-chevron">▼</span>
@@ -369,16 +386,11 @@
     <div class="sg-body">
       <p class="sg-note" style="font-weight:500">The Procure-to-Pay (P2P) process — your core flow:</p>
       <div class="flow-row">
-        <div class="flow-step mm-step">PR (ME51N)</div>
-        <span class="flow-arrow">→</span>
-        <div class="flow-step">RFQ (ME41)</div>
-        <span class="flow-arrow">→</span>
-        <div class="flow-step mm-step">PO (ME21N)</div>
-        <span class="flow-arrow">→</span>
-        <div class="flow-step mm-step">GR (MIGO)</div>
-        <span class="flow-arrow">→</span>
-        <div class="flow-step mm-step">Invoice (MIRO)</div>
-        <span class="flow-arrow">→</span>
+        <div class="flow-step blue">PR (ME51N)</div><span class="flow-arrow">→</span>
+        <div class="flow-step">RFQ (ME41)</div><span class="flow-arrow">→</span>
+        <div class="flow-step blue">PO (ME21N)</div><span class="flow-arrow">→</span>
+        <div class="flow-step blue">GR (MIGO)</div><span class="flow-arrow">→</span>
+        <div class="flow-step blue">Invoice (MIRO)</div><span class="flow-arrow">→</span>
         <div class="flow-step">Payment (FI)</div>
       </div>
       <hr class="sg-divider">
@@ -395,16 +407,6 @@
       <div class="tcode-row"><span class="tcode">MD01</span><span class="tcode-desc">Run MRP (Total Planning)</span></div>
       <div class="tcode-row"><span class="tcode">MMBE</span><span class="tcode-desc">Stock Overview</span></div>
       <hr class="sg-divider">
-      <p class="sg-note" style="font-weight:500">MM organizational structure — know which level each lives at:</p>
-      <div class="char-grid">
-        <div class="char-card"><p class="char-name">Client</p><p class="char-desc">Top level. One SAP system. All data below inherits from client.</p></div>
-        <div class="char-card"><p class="char-name">Company Code</p><p class="char-desc">Legal entity. Financial statements produced here. Vendor master has Company Code data.</p></div>
-        <div class="char-card"><p class="char-name">Plant</p><p class="char-desc">Production/warehouse location. Material Master has plant-level data (MRP, purchasing views).</p></div>
-        <div class="char-card"><p class="char-name">Storage Location</p><p class="char-desc">Physical storage area within a plant. Stock is tracked here.</p></div>
-        <div class="char-card"><p class="char-name">Purchasing Org</p><p class="char-desc">Negotiates with vendors. Vendor master has Purchasing Org data.</p></div>
-        <div class="char-card"><p class="char-name">Purchasing Group</p><p class="char-desc">Buyer/team responsible for specific materials. Assigned on PO line items.</p></div>
-      </div>
-      <hr class="sg-divider">
       <p class="sg-note" style="font-weight:500">Key MM master data:</p>
       <div class="char-grid">
         <div class="char-card"><p class="char-name">Material Master</p><p class="char-desc">Central record for every material. Views include: Basic Data, MRP, Purchasing, Plant Data/Storage, Accounting, Costing.</p></div>
@@ -412,6 +414,599 @@
         <div class="char-card"><p class="char-name">Purchasing Info Record</p><p class="char-desc">Links material to vendor with pricing. Auto-populates POs. Transaction ME11.</p></div>
         <div class="char-card"><p class="char-name">Source List</p><p class="char-desc">Defines approved vendors for a material at plant level. Can enforce single sourcing.</p></div>
       </div>
+    </div>
+  </div>
+
+
+  <!-- ═══════════════════════ DAY 3 ═══════════════════════ -->
+  <p class="day-label">Day 3 — SAP Navigation</p>
+
+  <div class="sg-section">
+    <div class="sg-section-header" onclick="toggle(this)">
+      <div class="sg-section-label">
+        <span class="sg-badge sg-tag-blue">Slides 1–9</span>
+        <span class="sg-section-title">Logging on &amp; off — login flow, passwords, sessions</span>
+      </div>
+      <span class="sg-chevron">▼</span>
+    </div>
+    <div class="sg-body">
+      <p class="sg-note">Every SAP session starts the same way. The SAP GUI system selection window has two tabs — use <strong>Shortcuts</strong>, not System.</p>
+      <div class="flow-row">
+        <div class="flow-step">Open SAP GUI</div><span class="flow-arrow">→</span>
+        <div class="flow-step blue">Select Shortcuts tab</div><span class="flow-arrow">→</span>
+        <div class="flow-step blue">Enter User ID + Password</div><span class="flow-arrow">→</span>
+        <div class="flow-step blue">Press Enter</div><span class="flow-arrow">→</span>
+        <div class="flow-step green">Main Menu Screen</div>
+      </div>
+      <p class="slide-note">Slide 6 shows the SAP GUI system selection window with the Shortcuts tab and the four shortcut buttons (Log On, New-Item, Change-Item, Delete-Item). Slide 7 shows the login dialog where you enter User ID and password.</p>
+      <div class="warn-block">
+        <p class="wt-label">COMMON MISTAKE</p>
+        <p class="wt-text">Use the <strong>Shortcuts</strong> tab only. The System tab is for changing clients or password resets — don't click it to log on.</p>
+      </div>
+      <div class="info-block">
+        <p class="ib-label">FIRST LOGIN — MANDATORY PASSWORD RESET</p>
+        <p class="ib-text">The first time you log in, SAP immediately displays a dialog requiring you to set a new password. Enter the new password in both the "New password" and "Repeat password" fields, then click Confirm. You cannot skip this step.</p>
+      </div>
+      <p class="sg-note" style="font-weight:500;margin-top:12px">Password rules (slide 8)</p>
+      <div class="kv-grid">
+        <div class="kv-card">
+          <p class="kv-label">Allowed</p>
+          <p class="kv-val">Letters a–z, numbers 0–9, punctuation</p>
+          <p class="kv-desc">SAP R/3 does not distinguish upper and lower case — "Password" and "PASSWORD" are identical.</p>
+        </div>
+        <div class="kv-card">
+          <p class="kv-label">Not allowed as first character</p>
+          <p class="kv-val">?, !, or a blank space</p>
+          <p class="kv-desc">Cannot start with 3 identical characters (e.g. "fff…"). Cannot contain 3 consecutive characters from your user name. Cannot reuse your last 5 passwords. Do not use "pass".</p>
+        </div>
+      </div>
+      <p class="sg-note" style="font-weight:500;margin-top:12px">Logging off (slide 14)</p>
+      <p class="sg-note">Use <strong>System → Log Off</strong> or the Exit icon. Closing the window without logging off leaves your session open on the server — a security risk.</p>
+      <p class="slide-note">Slide 14 shows the Log Off dialog warning that unsaved data will be lost.</p>
+    </div>
+  </div>
+
+  <div class="sg-section">
+    <div class="sg-section-header" onclick="toggle(this)">
+      <div class="sg-section-label">
+        <span class="sg-badge sg-tag-blue">Slides 12–13</span>
+        <span class="sg-section-title">Working with multiple sessions</span>
+      </div>
+      <span class="sg-chevron">▼</span>
+    </div>
+    <div class="sg-body">
+      <p class="sg-note">A <strong>session</strong> is one active SAP window. You can open multiple sessions simultaneously without losing data in any — useful for looking up account balances mid-transaction.</p>
+      <div class="kv-grid3">
+        <div class="kv-card">
+          <p class="kv-label">Method 1 — Menu</p>
+          <p class="kv-val">System → Create Session</p>
+          <p class="kv-desc">Available from any screen.</p>
+        </div>
+        <div class="kv-card hi">
+          <p class="kv-label">Method 2 — Toolbar icon</p>
+          <p class="kv-val">Click "Create New Session"</p>
+          <p class="kv-desc">Fastest. Icon always visible in the standard toolbar.</p>
+        </div>
+        <div class="kv-card">
+          <p class="kv-label">Method 3 — Taskbar</p>
+          <p class="kv-val">Right-click SAP icon → Create session</p>
+          <p class="kv-desc">Right-click the SAP taskbar icon (not the Log On icon).</p>
+        </div>
+      </div>
+      <p class="slide-note">Slide 12 shows the SAP Easy Access screen with the "Generate" button that creates a new blank session, and explains the three methods in detail.</p>
+      <div class="info-block">
+        <p class="ib-label">VIEW &amp; SWITCH SESSIONS</p>
+        <p class="ib-text">Type <code style="font-family:var(--font-mono);background:var(--color-background-secondary);padding:1px 5px;border-radius:3px">/o</code> in the command field and press Enter to list all open sessions. Use <strong>Alt + Tab</strong> to switch between sessions like any Windows applications.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="sg-section">
+    <div class="sg-section-header" onclick="toggle(this)">
+      <div class="sg-section-label">
+        <span class="sg-badge sg-tag-blue">Slides 16–20</span>
+        <span class="sg-section-title">SAP screen layout &amp; standard toolbar</span>
+      </div>
+      <span class="sg-chevron">▼</span>
+    </div>
+    <div class="sg-body">
+      <p class="sg-note">Every SAP screen follows the same five-zone layout. Know these zones and you can orient yourself in any transaction.</p>
+      <p class="slide-note">Slide 17 shows the SAP window with labeled arrows pointing to each zone. Slide 18 shows the ME51N application screen with Options, Push Buttons, Checkboxes, Tabs, and Status Bar labeled.</p>
+      <div class="org-tree">
+        <div class="org-row"><div class="org-node l0">Title Bar — name of the current transaction / screen</div></div>
+        <div class="org-row" style="margin-top:4px"><div class="org-node l1">Menu Bar — pull-down menus (System, Edit, Help…)</div></div>
+        <div class="org-row" style="margin-top:4px"><div class="org-node l1">Standard Toolbar — icons common to all transactions (Save, Back, Exit, Cancel, Print, Find, Create Session…)</div></div>
+        <div class="org-row" style="margin-top:4px"><div class="org-node l2">Application Toolbar — icons specific to the current transaction</div></div>
+        <div class="org-row" style="margin-top:4px"><div class="org-node l3">Status Bar (bottom) — messages, errors, document numbers; system/client info bottom-right</div></div>
+      </div>
+      <p class="sg-note" style="font-weight:500;margin-top:12px">Standard toolbar — buttons you must know (slide 19)</p>
+      <p class="slide-note">Slide 19 shows the full "Typical Icons" diagram labeling every toolbar button with its function.</p>
+      <div class="char-grid">
+        <div class="char-card"><p class="char-name">Enter (green checkmark)</p><p class="char-desc">Confirms entered data. Does NOT save. Validates a field without writing to the database.</p></div>
+        <div class="char-card"><p class="char-name">Save (floppy disk)</p><p class="char-desc">Writes the document to the database. A document number appears in the status bar on success.</p></div>
+        <div class="char-card"><p class="char-name">Back</p><p class="char-desc">Returns to previous screen without saving data.</p></div>
+        <div class="char-card"><p class="char-name">Exit</p><p class="char-desc">Returns to the initial/main screen without saving data.</p></div>
+        <div class="char-card"><p class="char-name">Cancel</p><p class="char-desc">Exits current task without saving. May prompt confirmation if data was entered.</p></div>
+        <div class="char-card"><p class="char-name">F1 Help</p><p class="char-desc">Field-level help. Click in any field, press F1 for documentation on that specific field.</p></div>
+      </div>
+      <div class="warn-block">
+        <p class="wt-label">BACK ≠ SAVE</p>
+        <p class="wt-text">Back, Exit, and Cancel all discard unsaved data. Only Save (or Ctrl+S) commits your work. Always save before navigating away from an entry screen.</p>
+      </div>
+      <p class="sg-note" style="font-weight:500;margin-top:12px">Function keys (slide 20)</p>
+      <p class="slide-note">Slide 20 shows the full function key table with all F-key assignments.</p>
+      <div class="char-grid">
+        <div class="char-card"><p class="char-name">F1 — Field help</p><p class="char-desc">"What does this field mean?" Documentation for whichever field your cursor is in.</p></div>
+        <div class="char-card"><p class="char-name">F4 — Value help / search help</p><p class="char-desc">"What can I enter here?" Opens a search dialog to look up valid values.</p></div>
+        <div class="char-card"><p class="char-name">F3 — Back</p><p class="char-desc">Returns to previous screen.</p></div>
+        <div class="char-card"><p class="char-name">F8 — Execute</p><p class="char-desc">Runs a report after selection criteria are entered.</p></div>
+        <div class="char-card"><p class="char-name">F6 — Organizational levels</p><p class="char-desc">Opens org level selection screen in relevant transactions.</p></div>
+        <div class="char-card"><p class="char-name">F12 — Cancel</p><p class="char-desc">Exits current task without saving.</p></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="sg-section">
+    <div class="sg-section-header" onclick="toggle(this)">
+      <div class="sg-section-label">
+        <span class="sg-badge sg-tag-blue">Slides 21–33</span>
+        <span class="sg-section-title">Navigation — Easy Access, transaction codes &amp; favorites</span>
+      </div>
+      <span class="sg-chevron">▼</span>
+    </div>
+    <div class="sg-body">
+      <p class="sg-note">There are two ways to open any SAP transaction: browse the menu tree, or type a transaction code directly. T-codes are far faster in day-to-day work.</p>
+      <p class="slide-note">Slides 22–25 show the SAP Easy Access screen and User Menu. Slides 26–29 walk through adding favorites — transactions, files, and web links. Slides 30–33 cover transaction codes and opening new sessions from the command field.</p>
+      <div class="kv-grid">
+        <div class="kv-card">
+          <p class="kv-label">SAP Easy Access menu</p>
+          <p class="kv-val">Folder tree on the main screen</p>
+          <p class="kv-desc">Appears when you log on. Your admin can limit which folders you see based on your security role.</p>
+        </div>
+        <div class="kv-card hi">
+          <p class="kv-label">Command field — transaction code</p>
+          <p class="kv-val">Type t-code → press Enter</p>
+          <p class="kv-desc">Fastest method. Type ME51N and press Enter from anywhere to land on Create Purchase Requisition.</p>
+        </div>
+      </div>
+      <div class="info-block">
+        <p class="ib-label">FAVORITES (slides 26–29)</p>
+        <p class="ib-text">Add any transaction, file, or web address to your Favorites list. Right-click in the tree or use Favorites → Add. Organize into folders. Favorites can be moved or renamed. To add a web link: Favorites → Add Other Object → Web Address.</p>
+      </div>
+      <p class="sg-note" style="font-weight:500;margin-top:12px">Command field shortcuts (slides 31–33)</p>
+      <div class="tcode-row"><span class="tcode">/o</span><span class="tcode-desc">List all open sessions</span></div>
+      <div class="tcode-row"><span class="tcode">/nXXX</span><span class="tcode-desc">Open transaction XXX in the same session (e.g. /nME51N)</span></div>
+      <div class="tcode-row"><span class="tcode">/oXXX</span><span class="tcode-desc">Open transaction XXX in a new session</span></div>
+      <div class="tcode-row"><span class="tcode">/nend</span><span class="tcode-desc">Log off SAP</span></div>
+    </div>
+  </div>
+
+  <div class="sg-section">
+    <div class="sg-section-header" onclick="toggle(this)">
+      <div class="sg-section-label">
+        <span class="sg-badge sg-tag-blue">Slides 35–41</span>
+        <span class="sg-section-title">Application work area — data entry fields</span>
+      </div>
+      <span class="sg-chevron">▼</span>
+    </div>
+    <div class="sg-body">
+      <p class="sg-note">The Application Work Area is where you actually enter and view data. SAP R/3 has several types of fields and UI elements you need to recognize.</p>
+      <p class="slide-note">Slide 36 shows the Application Work Area layout in a real SAP transaction. Slides 37–39 show the ME51N screen with data entry fields, drop-down lists, input fields, list displays, and date fields. Slide 40 shows Buttons, Radio Buttons, and Check Boxes. Slide 41 shows how to print a hard copy via the Customizing Local Layout button.</p>
+      <div class="char-grid">
+        <div class="char-card"><p class="char-name">Data entry fields</p><p class="char-desc">White background. Click the field and type. Tab to move to the next field. Press Enter to validate.</p></div>
+        <div class="char-card"><p class="char-name">Simple drop down</p><p class="char-desc">Field has a list icon. Click to choose from a short fixed list. No typing needed.</p></div>
+        <div class="char-card"><p class="char-name">Input fields</p><p class="char-desc">Like Windows text fields. Active field has a flashing cursor. Field length limits input.</p></div>
+        <div class="char-card"><p class="char-name">Required fields</p><p class="char-desc">Must be filled before the screen can be processed. Often identified by a checkbox marker or an error message on Enter.</p></div>
+        <div class="char-card"><p class="char-name">List display</p><p class="char-desc">Click the Material Group field's search icon to see all valid selections. Double-click to select.</p></div>
+        <div class="char-card"><p class="char-name">Date fields</p><p class="char-desc">Hidden calendar — press F4 then F2 for today's date. Or click the calendar icon. Short press F4 then F2 for current date.</p></div>
+      </div>
+      <div class="info-block">
+        <p class="ib-label">UNSURE WHAT TO ENTER?</p>
+        <p class="ib-text">Click in the field and press the Help button (?) or F1 to see what type of data goes there. SAP will describe the field and its expected format.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="sg-section">
+    <div class="sg-section-header" onclick="toggle(this)">
+      <div class="sg-section-label">
+        <span class="sg-badge sg-tag-blue">Slides 42–46</span>
+        <span class="sg-section-title">Search helps (F4) &amp; user profile parameters</span>
+      </div>
+      <span class="sg-chevron">▼</span>
+    </div>
+    <div class="sg-body">
+      <p class="sg-note">Search helps (matchcodes, F4 help) let you look up valid values for any field instead of typing them from memory. Used for vendors, materials, cost centers, and more.</p>
+      <p class="slide-note">Slide 43 shows F1 vs F4 on the ME51N Create Purchase Requisition screen — F1 is the Help button (brown question mark icon), F4 is the Browse/matchcode button. Slide 44 shows the Field Help dialog box that appears. Slide 45 shows the Searches dialog with Material Number, Material Description, and Published by Material Number tabs. Slide 46 shows the Search Help Box on the ME51N screen for searching vendors by name or using wildcards.</p>
+      <div class="flow-row">
+        <div class="flow-step">Click in field</div><span class="flow-arrow">→</span>
+        <div class="flow-step blue">Press F4 (or matchcode icon)</div><span class="flow-arrow">→</span>
+        <div class="flow-step blue">Enter criteria (* as wildcard)</div><span class="flow-arrow">→</span>
+        <div class="flow-step blue">Press Enter / green checkmark</div><span class="flow-arrow">→</span>
+        <div class="flow-step green">Double-click result</div>
+      </div>
+      <div class="info-block">
+        <p class="ib-label">WILDCARD TIP</p>
+        <p class="ib-text">Type the first letter(s) followed by <strong>*</strong> (e.g., "d*" finds all matches starting with D). Works in nearly every search dialog in SAP.</p>
+      </div>
+      <div class="warn-block">
+        <p class="wt-label">CHECK THE TABS</p>
+        <p class="wt-text">Search dialogs have multiple tabs — search by name, by number, by city, etc. If you don't see what you expect, check the other tabs before giving up.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="sg-section">
+    <div class="sg-section-header" onclick="toggle(this)">
+      <div class="sg-section-label">
+        <span class="sg-badge sg-tag-blue">Slides 48–54</span>
+        <span class="sg-section-title">Getting help inside SAP</span>
+      </div>
+      <span class="sg-chevron">▼</span>
+    </div>
+    <div class="sg-body">
+      <p class="sg-note">SAP has four built-in help systems. Knowing which one to use saves time when you're stuck.</p>
+      <p class="slide-note">Slide 43 shows F1 vs F4 visually on a real SAP screen. Slides 49–52 show the actual help dialogs for each type.</p>
+      <div class="char-grid">
+        <div class="char-card"><p class="char-name">F1 — Field-specific help</p><p class="char-desc">Click in a field, press F1. Shows documentation for that specific field. Best for "what does this field do?"</p></div>
+        <div class="char-card"><p class="char-name">F4 — Value help (search help)</p><p class="char-desc">Opens a lookup dialog for valid values. Best for "what can I enter here?"</p></div>
+        <div class="char-card"><p class="char-name">Help → Application Help</p><p class="char-desc">SAP detects where you are and shows the relevant help area. Good for understanding the full transaction flow.</p></div>
+        <div class="char-card"><p class="char-name">Help → SAP Library</p><p class="char-desc">Opens the SAP website with the full documentation tree. Use for deep-dive reference.</p></div>
+        <div class="char-card"><p class="char-name">Help → Glossary</p><p class="char-desc">Alphabetical list of SAP-specific terms. Useful when you encounter unfamiliar terminology.</p></div>
+      </div>
+      <div class="info-block">
+        <p class="ib-label">F1 vs F4 — KNOW THE DIFFERENCE</p>
+        <p class="ib-text">F1 = "what is this field?" (documentation). F4 = "what values can I put here?" (lookup). These two keys alone resolve the majority of entry-level navigation questions.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="sg-section">
+    <div class="sg-section-header" onclick="toggle(this)">
+      <div class="sg-section-label">
+        <span class="sg-badge sg-tag-blue">Slides 55–69</span>
+        <span class="sg-section-title">Business Workplace — messaging &amp; calendar</span>
+      </div>
+      <span class="sg-chevron">▼</span>
+    </div>
+    <div class="sg-body">
+      <p class="sg-note">The Business Workplace (BW) is SAP's built-in messaging and calendar system. Access it via the Business Workplace button on the SAP Easy Access main screen.</p>
+      <p class="slide-note">Slides 56–57 show the Business Workplace main screen with folder tree (use triangles to expand). Slides 58–60 show the Create Document and Send dialog for composing and sending messages. Slides 61–63 show the message check prompt, inbox view, and full-screen message view. Slides 64–66 show deleting messages and emptying the trash. Slides 68–69 show the Appointment Calendar with the monthly view and the Create Appointment form.</p>
+      <div class="char-grid">
+        <div class="char-card"><p class="char-name">Sending a message</p><p class="char-desc">Click New Message → enter SAP User ID (Logon Name) → compose → Send. Can check Express Mail, CC, or BCC. Attach files if needed.</p></div>
+        <div class="char-card"><p class="char-name">Reading messages</p><p class="char-desc">Click a category to see contents. Click a title to preview in the bottom section. Double-click to open full screen.</p></div>
+        <div class="char-card"><p class="char-name">Deleting messages</p><p class="char-desc">Drag title to Trash Can, or highlight + Delete key. View trash by clicking the Trash Can folder.</p></div>
+        <div class="char-card"><p class="char-name">Emptying trash</p><p class="char-desc">Highlight a message in Trash, press the Delete button on the toolbar, confirm "Yes".</p></div>
+        <div class="char-card"><p class="char-name">Appointment Calendar</p><p class="char-desc">From BW main screen → Appointment Calendar button. Click a date for day view; click a week number for week view. Create Appointment: fill in Title, Date/Time (military), Room, Description.</p></div>
+      </div>
+      <div class="info-block">
+        <p class="ib-label">SHARED TRASH</p>
+        <p class="ib-text">Items deleted from shared folders go to the Shared Trash, which only administrators can access. Your personal Trash is separate.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="sg-section">
+    <div class="sg-section-header" onclick="toggle(this)">
+      <div class="sg-section-label">
+        <span class="sg-badge sg-tag-amber">D3 Bonus</span>
+        <span class="sg-section-title">Navigation transaction codes &amp; shortcuts reference</span>
+      </div>
+      <span class="sg-chevron">▼</span>
+    </div>
+    <div class="sg-body">
+      <p class="sg-note">The D3 deck doesn't list t-codes explicitly, but these are the codes and shortcuts you'll use constantly for navigation:</p>
+      <p class="sg-note" style="font-weight:500">Session &amp; system management</p>
+      <div class="tcode-row"><span class="tcode">/o</span><span class="tcode-desc">List all open sessions (type in command field, press Enter)</span></div>
+      <div class="tcode-row"><span class="tcode">/nXXX</span><span class="tcode-desc">Open transaction XXX in the same window (replaces current screen)</span></div>
+      <div class="tcode-row"><span class="tcode">/oXXX</span><span class="tcode-desc">Open transaction XXX in a new session window</span></div>
+      <div class="tcode-row"><span class="tcode">/nend</span><span class="tcode-desc">Log off SAP (ends all sessions)</span></div>
+      <hr class="sg-divider">
+      <p class="sg-note" style="font-weight:500">User settings</p>
+      <div class="tcode-row"><span class="tcode">SU3</span><span class="tcode-desc">Maintain own user profile (defaults, parameters, address)</span></div>
+    </div>
+  </div>
+
+
+  <!-- ═══════════════════════ DAY 4 ═══════════════════════ -->
+  <p class="day-label">Day 4 — MM Procurement Basics</p>
+
+  <div class="sg-section">
+    <div class="sg-section-header" onclick="toggle(this)">
+      <div class="sg-section-label">
+        <span class="sg-badge sg-tag-blue">Slide 2</span>
+        <span class="sg-section-title">Organizational structure — definitions</span>
+      </div>
+      <span class="sg-chevron">▼</span>
+    </div>
+    <div class="sg-body">
+      <p class="sg-note">Every SAP transaction requires you to specify an organizational level. Knowing what each level is and what it controls is non-negotiable.</p>
+      <div class="kv-grid">
+        <div class="kv-card"><p class="kv-label">Client</p><p class="kv-val">Corporate group level</p><p class="kv-desc">Highest level in ECC. Has its own data, master records, and table set. One SAP system = one client.</p></div>
+        <div class="kv-card"><p class="kv-label">Company Code</p><p class="kv-val">Legal / accounting unit</p><p class="kv-desc">Smallest unit with its own independent accounting. Financial statements are produced at Company Code level.</p></div>
+        <div class="kv-card"><p class="kv-label">Plant</p><p class="kv-val">Operational logistics unit</p><p class="kv-desc">Structures the enterprise from production, procurement, and materials planning perspectives. A manufacturing facility or branch within a company.</p></div>
+        <div class="kv-card"><p class="kv-label">Storage Location (SLOC)</p><p class="kv-val">Physical stock area within plant</p><p class="kv-desc">Differentiates material stocks within a plant. Inventory Management is carried out at SLOC level.</p></div>
+        <div class="kv-card hi"><p class="kv-label">Purchasing Organization</p><p class="kv-val">Negotiates with vendors</p><p class="kv-desc">Negotiates purchase conditions for one or more plants. Legally responsible for completing purchasing contracts. Key MM unit.</p></div>
+        <div class="kv-card hi"><p class="kv-label">Purchasing Group</p><p class="kv-val">Buyer / buyer team</p><p class="kv-desc">A buyer or group of buyers responsible for certain purchasing activities. Assigned on PO line items.</p></div>
+      </div>
+      <div class="info-block">
+        <p class="ib-label">MEMORY TIP</p>
+        <p class="ib-text">Client → Company Code → Plant → Storage Location is the inventory hierarchy. Purchasing Org and Purchasing Group are the procurement responsibility hierarchy. Both hierarchies intersect at the Plant level.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="sg-section">
+    <div class="sg-section-header" onclick="toggle(this)">
+      <div class="sg-section-label">
+        <span class="sg-badge sg-tag-blue">Slide 3</span>
+        <span class="sg-section-title">Org hierarchy — inventory management levels</span>
+      </div>
+      <span class="sg-chevron">▼</span>
+    </div>
+    <div class="sg-body">
+      <p class="sg-note">This is how the organizational levels nest inside each other in a real SAP system. One client → multiple company codes. One company code → multiple plants. One plant → multiple storage locations.</p>
+      <div class="org-tree">
+        <div class="org-row"><div class="org-node l0">Client<span class="org-sub">Corporate group — entire SAP system</span></div></div>
+        <div style="display:flex;gap:0">
+          <div style="width:24px;flex-shrink:0"></div>
+          <div style="flex:1">
+            <div class="org-row" style="margin-top:6px"><div class="org-node l1">Company Code 1000<span class="org-sub">Legal entity A — own balance sheet</span></div></div>
+            <div style="display:flex;gap:0">
+              <div style="width:24px;flex-shrink:0;border-left:1.5px solid var(--color-border-tertiary);margin-left:12px"></div>
+              <div style="flex:1">
+                <div class="org-row" style="margin-top:6px"><div class="org-node l2">Plant 1010<span class="org-sub">Factory / location</span></div></div>
+                <div style="display:flex;gap:0">
+                  <div style="width:24px;flex-shrink:0;border-left:1.5px solid var(--color-border-tertiary);margin-left:12px"></div>
+                  <div style="flex:1"><div class="org-row" style="margin-top:6px"><div class="org-node l3">SLOC 0001 — Raw materials</div></div></div>
+                </div>
+                <div class="org-row" style="margin-top:6px"><div class="org-node l2">Plant 1020<span class="org-sub">Second factory</span></div></div>
+                <div style="display:flex;gap:0">
+                  <div style="width:24px;flex-shrink:0;border-left:1.5px solid var(--color-border-tertiary);margin-left:12px"></div>
+                  <div style="flex:1">
+                    <div class="org-row" style="margin-top:6px"><div class="org-node l3">SLOC 0001 — Warehouse A</div></div>
+                    <div class="org-row" style="margin-top:4px"><div class="org-node l3">SLOC 0002 — Warehouse B</div></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="org-row" style="margin-top:6px"><div class="org-node l1">Company Code 2000<span class="org-sub">Legal entity B — separate country/region</span></div></div>
+            <div style="display:flex;gap:0">
+              <div style="width:24px;flex-shrink:0;border-left:1.5px solid var(--color-border-tertiary);margin-left:12px"></div>
+              <div style="flex:1"><div class="org-row" style="margin-top:6px"><div class="org-node l2">Plant 2010<span class="org-sub">Location under entity B</span></div></div></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="info-block">
+        <p class="ib-label">KEY RULE</p>
+        <p class="ib-text">SLOC codes can repeat across plants — SLOC 0001 in Plant 1010 and SLOC 0001 in Plant 1020 are completely separate stock locations. The combination of Plant + SLOC uniquely identifies a stock location.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="sg-section">
+    <div class="sg-section-header" onclick="toggle(this)">
+      <div class="sg-section-label">
+        <span class="sg-badge sg-tag-blue">Slide 4</span>
+        <span class="sg-section-title">Purchasing organization — 3 setup types</span>
+      </div>
+      <span class="sg-chevron">▼</span>
+    </div>
+    <div class="sg-body">
+      <p class="sg-note">How you configure your Purchasing Organization determines which plants it can procure for. Three models:</p>
+      <div class="kv-grid3">
+        <div class="kv-card">
+          <p class="kv-label">1 — Central</p>
+          <p class="kv-val">One Purch. Org for all</p>
+          <p class="kv-desc">A single purchasing org (e.g. P001) is responsible for the entire company. Used when purchasing is highly centralized.</p>
+        </div>
+        <div class="kv-card">
+          <p class="kv-label">2 — Plant-Specific</p>
+          <p class="kv-val">One Purch. Org per plant</p>
+          <p class="kv-desc">Each plant has its own dedicated purchasing org. Used for decentralized, autonomous sites.</p>
+        </div>
+        <div class="kv-card hi">
+          <p class="kv-label">3 — Cross-Plant</p>
+          <p class="kv-val">One Purch. Org → multiple plants</p>
+          <p class="kv-desc">One purchasing org assigned to multiple plants under the same company code. Most common in practice.</p>
+        </div>
+      </div>
+      <div class="info-block">
+        <p class="ib-label">PRACTICAL NOTE</p>
+        <p class="ib-text">Cross-Plant is the most realistic setup for mid-to-large companies. A corporate purchasing team negotiates centrally and those contracts apply to all plants. Individual plants still do GRs and inventory management independently.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="sg-section">
+    <div class="sg-section-header" onclick="toggle(this)">
+      <div class="sg-section-label">
+        <span class="sg-badge sg-tag-green">Slide 5</span>
+        <span class="sg-section-title">Core procurement cycle — the 4-step loop</span>
+      </div>
+      <span class="sg-chevron">▼</span>
+    </div>
+    <div class="sg-body">
+      <p class="sg-note">Slide 5 shows the basic procurement loop as a cycle. Slides 6 and 7 expand it with more steps.</p>
+      <div class="cycle-grid">
+        <div class="cyc-item c1"><p class="cyc-num">Step 1</p><p class="cyc-name">Purchase Requisitions (PREQ)</p><p class="cyc-desc">Internal request to procurement to buy something. Triggers the whole cycle.</p></div>
+        <div class="cyc-item c2"><p class="cyc-num">Step 2</p><p class="cyc-name">Purchase Orders (PO)</p><p class="cyc-desc">Formal legal commitment sent to vendor. Created from the PREQ.</p></div>
+        <div class="cyc-item c3"><p class="cyc-num">Step 3</p><p class="cyc-name">Goods Receipts (GR)</p><p class="cyc-desc">Physical delivery arrives. Stock increases. Accounting document auto-generated.</p></div>
+        <div class="cyc-item c4"><p class="cyc-num">Step 4</p><p class="cyc-name">Invoice Verification</p><p class="cyc-desc">Vendor's invoice checked against PO and GR. Approved → payment via FI.</p></div>
+      </div>
+      <p class="sg-note" style="font-size:13px;color:var(--color-text-secondary)">It's a cycle because invoice verification feeds back — approved payments inform future vendor selection, and MRP forecasts drive the next round of requisitions.</p>
+    </div>
+  </div>
+
+  <div class="sg-section">
+    <div class="sg-section-header" onclick="toggle(this)">
+      <div class="sg-section-label">
+        <span class="sg-badge sg-tag-green">Slides 6–7</span>
+        <span class="sg-section-title">Full procurement process — expanded with MRP and inbound delivery</span>
+      </div>
+      <span class="sg-chevron">▼</span>
+    </div>
+    <div class="sg-body">
+      <p class="sg-note">Slides 6 and 7 add the upstream trigger (MRP) and the step between PO and GR (Inbound Delivery) to give the complete picture.</p>
+      <div class="flow-row">
+        <div class="flow-step">MRP / Demand</div><span class="flow-arrow">→</span>
+        <div class="flow-step blue">PREQ + Source + Vendor</div><span class="flow-arrow">→</span>
+        <div class="flow-step blue">Purchase Order</div><span class="flow-arrow">→</span>
+        <div class="flow-step green">Inbound Delivery</div><span class="flow-arrow">→</span>
+        <div class="flow-step green">Goods Receipt</div><span class="flow-arrow">→</span>
+        <div class="flow-step blue">Invoice Verification</div><span class="flow-arrow">→</span>
+        <div class="flow-step">Payment (FI)</div>
+      </div>
+      <hr class="sg-divider">
+      <div class="char-grid">
+        <div class="char-card"><p class="char-name">MRP trigger (slide 6)</p><p class="char-desc">MRP runs in PP module and calculates what to procure based on demand, forecast, or independent requirements. Auto-generates PREQs — this is how most PREQs are created in real companies.</p></div>
+        <div class="char-card"><p class="char-name">Inbound Delivery (slide 7)</p><p class="char-desc">Optional step between PO and GR. Vendor sends advance shipping notification (ASN). You create an Inbound Delivery to plan the receipt before goods physically arrive.</p></div>
+        <div class="char-card"><p class="char-name">Source Determination</p><p class="char-desc">SAP checks the Source List and Purchasing Info Records to suggest which vendor to use. If no source exists, an RFQ process may be triggered.</p></div>
+        <div class="char-card"><p class="char-name">Comparison of Quotations</p><p class="char-desc">When multiple vendors quote, SAP's price comparison (ME49) helps select the best. Part of the sourcing sub-process within PREQ handling.</p></div>
+      </div>
+      <div class="info-block">
+        <p class="ib-label">WHY THE CYCLE SHAPE MATTERS</p>
+        <p class="ib-text">Invoice verification feeds back to vendor performance data, which informs future source determination and vendor selection. Procurement is never truly linear — it's an ongoing loop.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="sg-section">
+    <div class="sg-section-header" onclick="toggle(this)">
+      <div class="sg-section-label">
+        <span class="sg-badge sg-tag-green">Slides 9–11</span>
+        <span class="sg-section-title">Key definitions — PREQ, PO, GR, Invoice Verification</span>
+      </div>
+      <span class="sg-chevron">▼</span>
+    </div>
+    <div class="sg-body">
+      <p class="sg-note" style="font-weight:500">Purchase Requisition (PREQ / PR)</p>
+      <p class="sg-note">An internal document requesting procurement to buy a material or service by a specific point in time. It is NOT a commitment to a vendor — it's an internal request only.</p>
+      <div class="kv-grid">
+        <div class="kv-card"><p class="kv-label">Created by</p><p class="kv-val">User manually or MRP automatically</p><p class="kv-desc">MRP in PP auto-generates PREQs when stock falls below reorder point or production requires materials.</p></div>
+        <div class="kv-card"><p class="kv-label">Required for a PO?</p><p class="kv-val">No — optional</p><p class="kv-desc">You can create a PO directly without a PREQ. In practice most companies require PREQs for approval first.</p></div>
+        <div class="kv-card"><p class="kv-label">Triggers</p><p class="kv-val">Customer demand, production plan, or internal request</p></div>
+        <div class="kv-card"><p class="kv-label">T-codes</p><p class="kv-val">ME51N / ME52N / ME53N</p><p class="kv-desc">Create / Change / Display.</p></div>
+      </div>
+      <hr class="sg-divider">
+      <p class="sg-note" style="font-weight:500">Purchase Order (PO)</p>
+      <p class="sg-note">A formal, legal request to a vendor to supply goods or services at a specific time, quantity, and agreed terms. Once sent to a vendor it is legally binding.</p>
+      <div class="kv-grid">
+        <div class="kv-card"><p class="kv-label">Created from</p><p class="kv-val">PREQ (reference) or directly</p></div>
+        <div class="kv-card"><p class="kv-label">Contains</p><p class="kv-val">Vendor, material, qty, price, delivery date, plant, SLOC, payment terms</p></div>
+        <div class="kv-card"><p class="kv-label">T-codes</p><p class="kv-val">ME21N / ME22N / ME23N</p></div>
+        <div class="kv-card"><p class="kv-label">Legal status</p><p class="kv-val">Binding contract once sent to vendor</p></div>
+      </div>
+      <hr class="sg-divider">
+      <p class="sg-note" style="font-weight:500">Goods Receipt (GR)</p>
+      <p class="sg-note">Posts an increase in warehouse stock when goods arrive from a vendor. Creates accounting and material documents automatically.</p>
+      <div class="kv-grid">
+        <div class="kv-card"><p class="kv-label">On GR posting</p><p class="kv-val">Stock qty increases at SLOC + FI accounting document auto-created</p></div>
+        <div class="kv-card"><p class="kv-label">Documents created</p><p class="kv-val">Material Document + Accounting Document (FI)</p><p class="kv-desc">FI debits the stock account and credits the GR/IR clearing account.</p></div>
+        <div class="kv-card"><p class="kv-label">T-code</p><p class="kv-val">MIGO — movement type 101 = GR against PO</p></div>
+      </div>
+      <hr class="sg-divider">
+      <p class="sg-note" style="font-weight:500">Invoice Verification (LIV — Logistics Invoice Verification)</p>
+      <p class="sg-note">Checks the vendor's invoice against the GR and the original PO. This is the 3-way match.</p>
+      <div class="match-grid">
+        <div class="match-card"><p class="match-icon">📋</p><p class="match-name">Purchase Order</p><p class="match-sub">Agreed price &amp; quantity</p></div>
+        <div class="match-card" style="background:#E1F5EE"><p class="match-icon">📦</p><p class="match-name">Goods Receipt</p><p class="match-sub">Actual qty received</p></div>
+        <div class="match-card" style="background:#E6F1FB"><p class="match-icon">🧾</p><p class="match-name">Vendor Invoice</p><p class="match-sub">What vendor is charging</p></div>
+      </div>
+      <div class="kv-grid">
+        <div class="kv-card"><p class="kv-label">T-code</p><p class="kv-val">MIRO</p><p class="kv-desc">Enter vendor invoice, reference the PO. SAP auto-populates expected values from PO/GR.</p></div>
+        <div class="kv-card"><p class="kv-label">After invoice posted</p><p class="kv-val">Payment processed in FI (Accounts Payable)</p><p class="kv-desc">Payment follows terms defined in the PO (e.g. Net 30).</p></div>
+      </div>
+      <div class="ok-block">
+        <p class="ok-label">3-WAY MATCH — CRITICAL CONCEPT</p>
+        <p class="ok-text">PO → GR → Invoice. All three must match on quantity and price within tolerance. If the vendor invoices for more than what was received or at a different price than the PO, SAP blocks the invoice for review. This is a core internal control in MM.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="sg-section">
+    <div class="sg-section-header" onclick="toggle(this)">
+      <div class="sg-section-label">
+        <span class="sg-badge sg-tag-amber">Slide 9 detail</span>
+        <span class="sg-section-title">Requisition determination — how needs are identified</span>
+      </div>
+      <span class="sg-chevron">▼</span>
+    </div>
+    <div class="sg-body">
+      <p class="sg-note">Requisition Determination is the upstream process of figuring out what needs to be procured. It feeds into the PREQ creation step.</p>
+      <div class="char-grid">
+        <div class="char-card"><p class="char-name">Demand-driven</p><p class="char-desc">A sales order in SD triggers PP. PP runs MRP, determines material shortages, and auto-creates PREQs in MM. Full chain: SD → PP → MM.</p></div>
+        <div class="char-card"><p class="char-name">Internal request</p><p class="char-desc">A department (IT, HR, maintenance) submits a PREQ manually. Goes through approval workflow before purchasing creates a PO.</p></div>
+        <div class="char-card"><p class="char-name">Reorder point planning</p><p class="char-desc">If stock falls below the reorder point set in the Material Master, MRP auto-generates a PREQ. Common for raw materials with predictable consumption.</p></div>
+        <div class="char-card"><p class="char-name">Forecast-based</p><p class="char-desc">Historical consumption patterns used to forecast future requirements. MRP uses these to plan procurement in advance of actual demand.</p></div>
+      </div>
+      <div class="info-block">
+        <p class="ib-label">MM-PP INTEGRATION POINT</p>
+        <p class="ib-text">MRP is technically a PP function but directly outputs PREQs into MM. This is one of the most important cross-module integration points you'll encounter. When PP runs MRP, MM is the recipient of the resulting procurement signals.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="sg-section">
+    <div class="sg-section-header" onclick="toggle(this)">
+      <div class="sg-section-label">
+        <span class="sg-badge sg-tag-gray">Slide 12</span>
+        <span class="sg-section-title">Unit objectives — what you need to be able to do</span>
+      </div>
+      <span class="sg-chevron">▼</span>
+    </div>
+    <div class="sg-body">
+      <p class="sg-note">The slide lists three unit objectives — your exam checkpoints for this deck:</p>
+      <div class="kv-grid3">
+        <div class="kv-card hi"><p class="kv-label">Objective 1</p><p class="kv-val">List all org levels relevant to procurement in R/3</p><p class="kv-desc">Client, Company Code, Plant, SLOC, Purchasing Org, Purchasing Group — and what each does.</p></div>
+        <div class="kv-card hi"><p class="kv-label">Objective 2</p><p class="kv-val">Explain the relationships between org levels</p><p class="kv-desc">Which levels are parent/child. Which can span others. How Purchasing Org maps to plants.</p></div>
+        <div class="kv-card hi"><p class="kv-label">Objective 3</p><p class="kv-val">Identify the basic procurement process</p><p class="kv-desc">PREQ → PO → GR → Invoice Verification → Payment. Know what each step does and what documents it creates.</p></div>
+      </div>
+      <div class="warn-block">
+        <p class="wt-label">TERMINOLOGY NOTE — R/3 vs ECC vs S/4HANA</p>
+        <p class="wt-text">The slide says "R/3 System" — the older name. In real work you'll hear ECC (older on-premise) or S/4HANA (current). The org structure concepts and procurement process steps are identical across all three. Don't get tripped up by the naming.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="sg-section">
+    <div class="sg-section-header" onclick="toggle(this)">
+      <div class="sg-section-label">
+        <span class="sg-badge sg-tag-amber">D4 Bonus</span>
+        <span class="sg-section-title">Transaction codes for the full procurement process</span>
+      </div>
+      <span class="sg-chevron">▼</span>
+    </div>
+    <div class="sg-body">
+      <p class="sg-note">The deck doesn't list t-codes explicitly, but these are what you'll use in the system for every step covered:</p>
+      <p class="sg-note" style="font-weight:500">Purchase Requisition</p>
+      <div class="tcode-row"><span class="tcode">ME51N</span><span class="tcode-desc">Create Purchase Requisition</span></div>
+      <div class="tcode-row"><span class="tcode">ME52N</span><span class="tcode-desc">Change Purchase Requisition</span></div>
+      <div class="tcode-row"><span class="tcode">ME53N</span><span class="tcode-desc">Display Purchase Requisition</span></div>
+      <div class="tcode-row"><span class="tcode">ME5A</span><span class="tcode-desc">List display of Purchase Requisitions</span></div>
+      <hr class="sg-divider">
+      <p class="sg-note" style="font-weight:500">Purchase Order</p>
+      <div class="tcode-row"><span class="tcode">ME21N</span><span class="tcode-desc">Create Purchase Order</span></div>
+      <div class="tcode-row"><span class="tcode">ME22N</span><span class="tcode-desc">Change Purchase Order</span></div>
+      <div class="tcode-row"><span class="tcode">ME23N</span><span class="tcode-desc">Display Purchase Order</span></div>
+      <div class="tcode-row"><span class="tcode">ME2M</span><span class="tcode-desc">POs by Material (list)</span></div>
+      <hr class="sg-divider">
+      <p class="sg-note" style="font-weight:500">Goods Receipt &amp; Inventory</p>
+      <div class="tcode-row"><span class="tcode">MIGO</span><span class="tcode-desc">Goods Movement (GR = mvt type 101, GI = 261, transfer = 311)</span></div>
+      <div class="tcode-row"><span class="tcode">MMBE</span><span class="tcode-desc">Stock Overview — see stock at all org levels</span></div>
+      <div class="tcode-row"><span class="tcode">MB51</span><span class="tcode-desc">Material Document List — all posted goods movements</span></div>
+      <hr class="sg-divider">
+      <p class="sg-note" style="font-weight:500">Invoice Verification</p>
+      <div class="tcode-row"><span class="tcode">MIRO</span><span class="tcode-desc">Enter Incoming Invoice (Logistics Invoice Verification)</span></div>
+      <div class="tcode-row"><span class="tcode">MIR4</span><span class="tcode-desc">Display Invoice Document</span></div>
+      <div class="tcode-row"><span class="tcode">MRBR</span><span class="tcode-desc">Release Blocked Invoices (3-way match failures)</span></div>
+      <hr class="sg-divider">
+      <p class="sg-note" style="font-weight:500">Sourcing</p>
+      <div class="tcode-row"><span class="tcode">ME41</span><span class="tcode-desc">Create Request for Quotation (RFQ)</span></div>
+      <div class="tcode-row"><span class="tcode">ME47</span><span class="tcode-desc">Maintain Quotation (enter vendor prices)</span></div>
+      <div class="tcode-row"><span class="tcode">ME49</span><span class="tcode-desc">Price Comparison — compare vendor quotations</span></div>
+      <div class="tcode-row"><span class="tcode">ME01</span><span class="tcode-desc">Maintain Source List</span></div>
     </div>
   </div>
 
@@ -424,12 +1019,8 @@
     const isOpen = body.classList.contains('open');
     body.classList.toggle('open', !isOpen);
     chevron.classList.toggle('open', !isOpen);
-    updateProgress();
-  }
-
-  function updateProgress() {
     const total = document.querySelectorAll('.sg-body').length;
-    const open = document.querySelectorAll('.sg-body.open').length;
+    const open  = document.querySelectorAll('.sg-body.open').length;
     document.getElementById('progress').style.width = Math.round((open/total)*100) + '%';
   }
 </script>
