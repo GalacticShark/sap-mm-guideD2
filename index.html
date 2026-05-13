@@ -1,7 +1,25 @@
-<h2 class="sr-only">SAP Training — Full Study Guide</h2>
-
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SAP Training — Full Study Guide</title>
 <style>
-  .sg-wrap { font-family: var(--font-sans); max-width: 680px; padding: 0.5rem 0 2rem; }
+  body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: #fff; color: #1a1a1a; margin: 0; padding: 20px; }
+  :root {
+    --font-sans: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    --font-mono: 'Consolas', 'Courier New', monospace;
+    --color-text-primary: #1a1a1a;
+    --color-text-secondary: #6b6b6b;
+    --color-background-primary: #ffffff;
+    --color-background-secondary: #f5f5f5;
+    --color-background-tertiary: #ebebeb;
+    --color-border-tertiary: #e0e0e0;
+    --border-radius-lg: 10px;
+    --border-radius-md: 6px;
+  }
+
+  .sg-wrap { font-family: var(--font-sans); max-width: 680px; padding: 0.5rem 0 2rem; margin: 0 auto; }
   .sg-header { margin-bottom: 2rem; }
   .sg-title { font-size: 22px; font-weight: 500; color: var(--color-text-primary); margin: 0 0 4px; }
   .sg-sub { font-size: 14px; color: var(--color-text-secondary); margin: 0; }
@@ -26,6 +44,7 @@
   .sg-tag-amber   { background: #FAEEDA; color: #854F0B; }
   .sg-tag-gray    { background: #F1EFE8; color: #5F5E5A; }
   .sg-tag-outdated{ background: #FAECE7; color: #993C1D; }
+  .sg-tag-purple  { background: #F0EAFB; color: #6B3FA0; }
 
   /* callout blocks */
   .outdated-block { background: #FAECE7; border-left: 3px solid #D85A30; border-radius: 0 var(--border-radius-md) var(--border-radius-md) 0; padding: 10px 14px; margin: 12px 0; }
@@ -144,12 +163,19 @@
   /* progress */
   .progress-bar  { height: 4px; background: var(--color-border-tertiary); border-radius: 2px; margin-top: 8px; }
   .progress-fill { height: 100%; border-radius: 2px; background: #378ADD; transition: width .3s; }
+
+  /* view table */
+  .view-table { width: 100%; border-collapse: collapse; font-size: 13px; margin: 10px 0; }
+  .view-table th { background: var(--color-background-secondary); text-align: left; padding: 8px 10px; font-weight: 500; font-size: 12px; color: var(--color-text-secondary); border-bottom: 0.5px solid var(--color-border-tertiary); }
+  .view-table td { padding: 7px 10px; border-bottom: 0.5px solid var(--color-border-tertiary); vertical-align: top; color: var(--color-text-primary); line-height: 1.5; font-size: 13px; }
+  .view-table tr:last-child td { border-bottom: none; }
+  .view-table .vt-hi { background: #E6F1FB; font-weight: 500; color: #185FA5; }
 </style>
 
 <div class="sg-wrap">
   <div class="sg-header">
-    <p class="sg-title">SAP training — study guide</p>
-    <p class="sg-sub">Day 2 · SAP Introduction &amp; MM overview &nbsp;·&nbsp; Day 3 · SAP Navigation &nbsp;·&nbsp; Day 4 · MM Procurement basics · Click to expand</p>
+    <p class="sg-title">SAP training — full study guide</p>
+    <p class="sg-sub">Day 2 · SAP Intro &amp; MM Overview &nbsp;·&nbsp; Day 3 · SAP Navigation &nbsp;·&nbsp; Day 4 · MM Procurement Basics &nbsp;·&nbsp; Day 5 · Master Data &nbsp;·&nbsp; Click sections to expand</p>
     <div class="progress-bar"><div class="progress-fill" id="progress" style="width:0%"></div></div>
   </div>
 
@@ -497,7 +523,6 @@
           <p class="kv-desc">Right-click the SAP taskbar icon (not the Log On icon).</p>
         </div>
       </div>
-      <p class="slide-note">Slide 12 shows the SAP Easy Access screen with the "Generate" button that creates a new blank session, and explains the three methods in detail.</p>
       <div class="info-block">
         <p class="ib-label">VIEW &amp; SWITCH SESSIONS</p>
         <p class="ib-text">Type <code style="font-family:var(--font-mono);background:var(--color-background-secondary);padding:1px 5px;border-radius:3px">/o</code> in the command field and press Enter to list all open sessions. Use <strong>Alt + Tab</strong> to switch between sessions like any Windows applications.</p>
@@ -515,7 +540,6 @@
     </div>
     <div class="sg-body">
       <p class="sg-note">Every SAP screen follows the same five-zone layout. Know these zones and you can orient yourself in any transaction.</p>
-      <p class="slide-note">Slide 17 shows the SAP window with labeled arrows pointing to each zone. Slide 18 shows the ME51N application screen with Options, Push Buttons, Checkboxes, Tabs, and Status Bar labeled.</p>
       <div class="org-tree">
         <div class="org-row"><div class="org-node l0">Title Bar — name of the current transaction / screen</div></div>
         <div class="org-row" style="margin-top:4px"><div class="org-node l1">Menu Bar — pull-down menus (System, Edit, Help…)</div></div>
@@ -524,7 +548,6 @@
         <div class="org-row" style="margin-top:4px"><div class="org-node l3">Status Bar (bottom) — messages, errors, document numbers; system/client info bottom-right</div></div>
       </div>
       <p class="sg-note" style="font-weight:500;margin-top:12px">Standard toolbar — buttons you must know (slide 19)</p>
-      <p class="slide-note">Slide 19 shows the full "Typical Icons" diagram labeling every toolbar button with its function.</p>
       <div class="char-grid">
         <div class="char-card"><p class="char-name">Enter (green checkmark)</p><p class="char-desc">Confirms entered data. Does NOT save. Validates a field without writing to the database.</p></div>
         <div class="char-card"><p class="char-name">Save (floppy disk)</p><p class="char-desc">Writes the document to the database. A document number appears in the status bar on success.</p></div>
@@ -538,7 +561,6 @@
         <p class="wt-text">Back, Exit, and Cancel all discard unsaved data. Only Save (or Ctrl+S) commits your work. Always save before navigating away from an entry screen.</p>
       </div>
       <p class="sg-note" style="font-weight:500;margin-top:12px">Function keys (slide 20)</p>
-      <p class="slide-note">Slide 20 shows the full function key table with all F-key assignments.</p>
       <div class="char-grid">
         <div class="char-card"><p class="char-name">F1 — Field help</p><p class="char-desc">"What does this field mean?" Documentation for whichever field your cursor is in.</p></div>
         <div class="char-card"><p class="char-name">F4 — Value help / search help</p><p class="char-desc">"What can I enter here?" Opens a search dialog to look up valid values.</p></div>
@@ -560,7 +582,6 @@
     </div>
     <div class="sg-body">
       <p class="sg-note">There are two ways to open any SAP transaction: browse the menu tree, or type a transaction code directly. T-codes are far faster in day-to-day work.</p>
-      <p class="slide-note">Slides 22–25 show the SAP Easy Access screen and User Menu. Slides 26–29 walk through adding favorites — transactions, files, and web links. Slides 30–33 cover transaction codes and opening new sessions from the command field.</p>
       <div class="kv-grid">
         <div class="kv-card">
           <p class="kv-label">SAP Easy Access menu</p>
@@ -595,14 +616,13 @@
     </div>
     <div class="sg-body">
       <p class="sg-note">The Application Work Area is where you actually enter and view data. SAP R/3 has several types of fields and UI elements you need to recognize.</p>
-      <p class="slide-note">Slide 36 shows the Application Work Area layout in a real SAP transaction. Slides 37–39 show the ME51N screen with data entry fields, drop-down lists, input fields, list displays, and date fields. Slide 40 shows Buttons, Radio Buttons, and Check Boxes. Slide 41 shows how to print a hard copy via the Customizing Local Layout button.</p>
       <div class="char-grid">
         <div class="char-card"><p class="char-name">Data entry fields</p><p class="char-desc">White background. Click the field and type. Tab to move to the next field. Press Enter to validate.</p></div>
         <div class="char-card"><p class="char-name">Simple drop down</p><p class="char-desc">Field has a list icon. Click to choose from a short fixed list. No typing needed.</p></div>
         <div class="char-card"><p class="char-name">Input fields</p><p class="char-desc">Like Windows text fields. Active field has a flashing cursor. Field length limits input.</p></div>
         <div class="char-card"><p class="char-name">Required fields</p><p class="char-desc">Must be filled before the screen can be processed. Often identified by a checkbox marker or an error message on Enter.</p></div>
         <div class="char-card"><p class="char-name">List display</p><p class="char-desc">Click the Material Group field's search icon to see all valid selections. Double-click to select.</p></div>
-        <div class="char-card"><p class="char-name">Date fields</p><p class="char-desc">Hidden calendar — press F4 then F2 for today's date. Or click the calendar icon. Short press F4 then F2 for current date.</p></div>
+        <div class="char-card"><p class="char-name">Date fields</p><p class="char-desc">Hidden calendar — press F4 then F2 for today's date. Or click the calendar icon.</p></div>
       </div>
       <div class="info-block">
         <p class="ib-label">UNSURE WHAT TO ENTER?</p>
@@ -621,7 +641,6 @@
     </div>
     <div class="sg-body">
       <p class="sg-note">Search helps (matchcodes, F4 help) let you look up valid values for any field instead of typing them from memory. Used for vendors, materials, cost centers, and more.</p>
-      <p class="slide-note">Slide 43 shows F1 vs F4 on the ME51N Create Purchase Requisition screen — F1 is the Help button (brown question mark icon), F4 is the Browse/matchcode button. Slide 44 shows the Field Help dialog box that appears. Slide 45 shows the Searches dialog with Material Number, Material Description, and Published by Material Number tabs. Slide 46 shows the Search Help Box on the ME51N screen for searching vendors by name or using wildcards.</p>
       <div class="flow-row">
         <div class="flow-step">Click in field</div><span class="flow-arrow">→</span>
         <div class="flow-step blue">Press F4 (or matchcode icon)</div><span class="flow-arrow">→</span>
@@ -650,7 +669,6 @@
     </div>
     <div class="sg-body">
       <p class="sg-note">SAP has four built-in help systems. Knowing which one to use saves time when you're stuck.</p>
-      <p class="slide-note">Slide 43 shows F1 vs F4 visually on a real SAP screen. Slides 49–52 show the actual help dialogs for each type.</p>
       <div class="char-grid">
         <div class="char-card"><p class="char-name">F1 — Field-specific help</p><p class="char-desc">Click in a field, press F1. Shows documentation for that specific field. Best for "what does this field do?"</p></div>
         <div class="char-card"><p class="char-name">F4 — Value help (search help)</p><p class="char-desc">Opens a lookup dialog for valid values. Best for "what can I enter here?"</p></div>
@@ -675,7 +693,6 @@
     </div>
     <div class="sg-body">
       <p class="sg-note">The Business Workplace (BW) is SAP's built-in messaging and calendar system. Access it via the Business Workplace button on the SAP Easy Access main screen.</p>
-      <p class="slide-note">Slides 56–57 show the Business Workplace main screen with folder tree (use triangles to expand). Slides 58–60 show the Create Document and Send dialog for composing and sending messages. Slides 61–63 show the message check prompt, inbox view, and full-screen message view. Slides 64–66 show deleting messages and emptying the trash. Slides 68–69 show the Appointment Calendar with the monthly view and the Create Appointment form.</p>
       <div class="char-grid">
         <div class="char-card"><p class="char-name">Sending a message</p><p class="char-desc">Click New Message → enter SAP User ID (Logon Name) → compose → Send. Can check Express Mail, CC, or BCC. Attach files if needed.</p></div>
         <div class="char-card"><p class="char-name">Reading messages</p><p class="char-desc">Click a category to see contents. Click a title to preview in the bottom section. Double-click to open full screen.</p></div>
@@ -699,7 +716,6 @@
       <span class="sg-chevron">▼</span>
     </div>
     <div class="sg-body">
-      <p class="sg-note">The D3 deck doesn't list t-codes explicitly, but these are the codes and shortcuts you'll use constantly for navigation:</p>
       <p class="sg-note" style="font-weight:500">Session &amp; system management</p>
       <div class="tcode-row"><span class="tcode">/o</span><span class="tcode-desc">List all open sessions (type in command field, press Enter)</span></div>
       <div class="tcode-row"><span class="tcode">/nXXX</span><span class="tcode-desc">Open transaction XXX in the same window (replaces current screen)</span></div>
@@ -832,7 +848,6 @@
       <span class="sg-chevron">▼</span>
     </div>
     <div class="sg-body">
-      <p class="sg-note">Slide 5 shows the basic procurement loop as a cycle. Slides 6 and 7 expand it with more steps.</p>
       <div class="cycle-grid">
         <div class="cyc-item c1"><p class="cyc-num">Step 1</p><p class="cyc-name">Purchase Requisitions (PREQ)</p><p class="cyc-desc">Internal request to procurement to buy something. Triggers the whole cycle.</p></div>
         <div class="cyc-item c2"><p class="cyc-num">Step 2</p><p class="cyc-name">Purchase Orders (PO)</p><p class="cyc-desc">Formal legal commitment sent to vendor. Created from the PREQ.</p></div>
@@ -852,7 +867,6 @@
       <span class="sg-chevron">▼</span>
     </div>
     <div class="sg-body">
-      <p class="sg-note">Slides 6 and 7 add the upstream trigger (MRP) and the step between PO and GR (Inbound Delivery) to give the complete picture.</p>
       <div class="flow-row">
         <div class="flow-step">MRP / Demand</div><span class="flow-arrow">→</span>
         <div class="flow-step blue">PREQ + Source + Vendor</div><span class="flow-arrow">→</span>
@@ -938,7 +952,6 @@
       <span class="sg-chevron">▼</span>
     </div>
     <div class="sg-body">
-      <p class="sg-note">Requisition Determination is the upstream process of figuring out what needs to be procured. It feeds into the PREQ creation step.</p>
       <div class="char-grid">
         <div class="char-card"><p class="char-name">Demand-driven</p><p class="char-desc">A sales order in SD triggers PP. PP runs MRP, determines material shortages, and auto-creates PREQs in MM. Full chain: SD → PP → MM.</p></div>
         <div class="char-card"><p class="char-name">Internal request</p><p class="char-desc">A department (IT, HR, maintenance) submits a PREQ manually. Goes through approval workflow before purchasing creates a PO.</p></div>
@@ -961,7 +974,6 @@
       <span class="sg-chevron">▼</span>
     </div>
     <div class="sg-body">
-      <p class="sg-note">The slide lists three unit objectives — your exam checkpoints for this deck:</p>
       <div class="kv-grid3">
         <div class="kv-card hi"><p class="kv-label">Objective 1</p><p class="kv-val">List all org levels relevant to procurement in R/3</p><p class="kv-desc">Client, Company Code, Plant, SLOC, Purchasing Org, Purchasing Group — and what each does.</p></div>
         <div class="kv-card hi"><p class="kv-label">Objective 2</p><p class="kv-val">Explain the relationships between org levels</p><p class="kv-desc">Which levels are parent/child. Which can span others. How Purchasing Org maps to plants.</p></div>
@@ -983,7 +995,6 @@
       <span class="sg-chevron">▼</span>
     </div>
     <div class="sg-body">
-      <p class="sg-note">The deck doesn't list t-codes explicitly, but these are what you'll use in the system for every step covered:</p>
       <p class="sg-note" style="font-weight:500">Purchase Requisition</p>
       <div class="tcode-row"><span class="tcode">ME51N</span><span class="tcode-desc">Create Purchase Requisition</span></div>
       <div class="tcode-row"><span class="tcode">ME52N</span><span class="tcode-desc">Change Purchase Requisition</span></div>
@@ -1014,6 +1025,552 @@
     </div>
   </div>
 
+
+  <!-- ═══════════════════════ DAY 5 ═══════════════════════ -->
+  <p class="day-label">Day 5 — Master Data</p>
+
+  <!-- ─── D5 OVERVIEW ─── -->
+  <div class="sg-section">
+    <div class="sg-section-header" onclick="toggle(this)">
+      <div class="sg-section-label">
+        <span class="sg-badge sg-tag-purple">D5 Slide 1</span>
+        <span class="sg-section-title">Master data vs. transaction data — the core distinction</span>
+      </div>
+      <span class="sg-chevron">▼</span>
+    </div>
+    <div class="sg-body">
+      <p class="sg-note">SAP separates two fundamentally different kinds of data. You need to know which is which because they behave differently in the system.</p>
+      <div class="kv-grid">
+        <div class="kv-card hi">
+          <p class="kv-label">Master Data</p>
+          <p class="kv-val">The critical "nouns" of a business</p>
+          <p class="kv-desc">People, things, places, concepts. Key assets. Seldom changes. Examples: Customer, Material, Vendor, G/L Accounts. You <em>use</em> master data in SAP.</p>
+        </div>
+        <div class="kv-card">
+          <p class="kv-label">Transaction Data</p>
+          <p class="kv-val">Events that occur through ongoing postings</p>
+          <p class="kv-desc">Represents single business events. Punctual and time-dependent. Subject to frequent changes. Examples: Invoice posting, goods receipt, dunning. You <em>create</em> transaction data in SAP.</p>
+        </div>
+      </div>
+      <div class="info-block">
+        <p class="ib-label">THE RELATIONSHIP</p>
+        <p class="ib-text">Transaction data always references master data. A Goods Receipt (transaction) references a Material Master and a Vendor Master. A Purchase Order (transaction) pulls pricing from the Purchasing Info Record (master). Without complete, accurate master data, transactions fail or produce garbage output.</p>
+      </div>
+      <p class="sg-note" style="font-weight:500">Key characteristics side by side:</p>
+      <div class="kv-grid">
+        <div class="kv-card">
+          <p class="kv-label">Master Data traits</p>
+          <p class="kv-val">Basis for business processes · Long-term · Centralized management · Changes rarely</p>
+        </div>
+        <div class="kv-card">
+          <p class="kv-label">Transaction Data traits</p>
+          <p class="kv-val">Single business event · Time-stamped · Frequent changes · References master data</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="sg-section">
+    <div class="sg-section-header" onclick="toggle(this)">
+      <div class="sg-section-label">
+        <span class="sg-badge sg-tag-purple">D5 Slides 2–3</span>
+        <span class="sg-section-title">Why master data matters — importance &amp; benefits of centralizing</span>
+      </div>
+      <span class="sg-chevron">▼</span>
+    </div>
+    <div class="sg-body">
+      <p class="sg-note">The slides hammer this point: master data is either the foundation of everything working or the root cause of everything failing. Complete and accurate master data is a prerequisite to timely and accurate transaction processing.</p>
+      <div class="char-grid">
+        <div class="char-card"><p class="char-name">Corporate synergy</p><p class="char-desc">One set of information consistent across all business units. When all plants use the same material number for the same item, reporting and analysis become meaningful.</p></div>
+        <div class="char-card"><p class="char-name">Eliminates redundancy</p><p class="char-desc">Before centralized master data, each department maintained its own records for the same supplier or material. SAP puts it all in one place — one record, all departments.</p></div>
+        <div class="char-card"><p class="char-name">Improves data integrity</p><p class="char-desc">Common codes and controlled maintenance mean fewer data entry errors and consistent results across all transactions.</p></div>
+        <div class="char-card"><p class="char-name">Simplifies business processing</p><p class="char-desc">Transaction data auto-populates from master data. A PO automatically pulls the vendor's payment terms, currency, and address from the vendor master — no re-entry required.</p></div>
+        <div class="char-card"><p class="char-name">Supports reporting</p><p class="char-desc">Common codes allow executive-level reporting and analysis. If every plant uses different codes for the same material, consolidated reporting is impossible.</p></div>
+        <div class="char-card"><p class="char-name">Implementation timing</p><p class="char-desc">Master data activities must start during the prototyping phase of an SAP implementation to ensure go-live dates are met. It cannot be an afterthought.</p></div>
+      </div>
+      <p class="sg-note" style="font-weight:500;margin-top:8px">Benefits of centralizing master data maintenance specifically:</p>
+      <div class="kv-grid">
+        <div class="kv-card"><p class="kv-label">Single org hierarchy</p><p class="kv-val">One group owns and can see the "big picture"</p></div>
+        <div class="kv-card"><p class="kv-label">Reduced cost</p><p class="kv-val">Fewer data maintenance users needed system-wide</p></div>
+        <div class="kv-card"><p class="kv-label">Change management</p><p class="kv-val">Consistent software control via SAP TMS</p></div>
+        <div class="kv-card"><p class="kv-label">Security</p><p class="kv-val">Centralized production data security and support</p></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="sg-section">
+    <div class="sg-section-header" onclick="toggle(this)">
+      <div class="sg-section-label">
+        <span class="sg-badge sg-tag-purple">D5 Slides 4–6</span>
+        <span class="sg-section-title">SAP master data examples — what counts as master vs. transaction</span>
+      </div>
+      <span class="sg-chevron">▼</span>
+    </div>
+    <div class="sg-body">
+      <p class="sg-note" style="font-weight:500">Master Data examples (slide 4):</p>
+      <div class="mod-grid">
+        <div class="mod-card highlight"><p class="mod-abbr" style="font-size:13px">Material Master</p><p class="mod-name">MM — you'll live here</p></div>
+        <div class="mod-card highlight"><p class="mod-abbr" style="font-size:13px">Vendor Master</p><p class="mod-name">MM Purchasing</p></div>
+        <div class="mod-card highlight"><p class="mod-abbr" style="font-size:13px">Info Record</p><p class="mod-name">MM Purchasing</p></div>
+        <div class="mod-card"><p class="mod-abbr" style="font-size:13px">Chart of Accounts</p><p class="mod-name">FI module</p></div>
+        <div class="mod-card"><p class="mod-abbr" style="font-size:13px">Customers</p><p class="mod-name">SD module</p></div>
+        <div class="mod-card"><p class="mod-abbr" style="font-size:13px">Bill of Materials</p><p class="mod-name">PP module</p></div>
+        <div class="mod-card"><p class="mod-abbr" style="font-size:13px">Routings</p><p class="mod-name">PP module</p></div>
+        <div class="mod-card"><p class="mod-abbr" style="font-size:13px">Plant Structure</p><p class="mod-name">Org config</p></div>
+      </div>
+      <hr class="sg-divider">
+      <p class="sg-note" style="font-weight:500">Transaction Data examples (slide 5):</p>
+      <div class="kv-grid3">
+        <div class="kv-card"><p class="kv-label">Sales Orders</p><p class="kv-val">SD module</p><p class="kv-desc">Created when a customer places an order. References customer master and material master.</p></div>
+        <div class="kv-card"><p class="kv-label">Purchase Orders</p><p class="kv-val">MM module</p><p class="kv-desc">Created when procuring from a vendor. References vendor master, material master, info record.</p></div>
+        <div class="kv-card"><p class="kv-label">Production Orders</p><p class="kv-val">PP module</p><p class="kv-desc">Created to manufacture a product. References bill of materials and routings (master data).</p></div>
+      </div>
+      <hr class="sg-divider">
+      <p class="sg-note" style="font-weight:500">The three core MM master data records (slide 6):</p>
+      <div class="kv-grid3">
+        <div class="kv-card hi"><p class="kv-label">1</p><p class="kv-val">Vendor Master Record</p><p class="kv-desc">Who you buy from. Contains legal, financial, and purchasing data about every supplier.</p></div>
+        <div class="kv-card hi"><p class="kv-label">2</p><p class="kv-val">Material Master Record</p><p class="kv-desc">What you buy, store, and consume. The central record for every material in the system.</p></div>
+        <div class="kv-card hi"><p class="kv-label">3</p><p class="kv-val">Purchasing Info Record</p><p class="kv-desc">The link between vendor and material. Stores pricing and supply conditions for that vendor-material combination.</p></div>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- ─── VENDOR MASTER ─── -->
+  <div class="sg-section">
+    <div class="sg-section-header" onclick="toggle(this)">
+      <div class="sg-section-label">
+        <span class="sg-badge sg-tag-purple">Vendor — Slides 3–4</span>
+        <span class="sg-section-title">Vendor Master — structure and three data levels</span>
+      </div>
+      <span class="sg-chevron">▼</span>
+    </div>
+    <div class="sg-body">
+      <p class="sg-note">The Vendor Master is a unique repository of all relevant information about a supplier. It is divided into three views, each at a different organizational level. This is critical — the same vendor record contains data used by completely different departments.</p>
+      <div class="org-tree">
+        <div class="org-row"><div class="org-node l0">General Data — Client level<span class="org-sub">Legal information: address, legal name, tax/ABN number. Created once per client. Visible everywhere in the org.</span></div></div>
+        <div class="org-row" style="margin-top:6px"><div class="org-node l1">Accounting Data (Company Code level)<span class="org-sub">Reconciliation account, payment methods, dunning data. Created once per Company Code. Used by FI/Accounts Payable.</span></div></div>
+        <div class="org-row" style="margin-top:6px"><div class="org-node l2">Purchasing Data (Purchasing Org level)<span class="org-sub">Order currency, incoterms, purchasing group, delivery time. Created once per Purchasing Org. Used by MM buyers to create POs.</span></div></div>
+      </div>
+      <div class="info-block">
+        <p class="ib-label">KEY RULE</p>
+        <p class="ib-text">General Data is valid at client level — available throughout the entire organization. Accounting data is valid per Company Code — applies to all plants under that code. Purchasing data is maintained per Purchasing Org — if a vendor supplies multiple purchasing orgs, purchasing data must be created for each one separately.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="sg-section">
+    <div class="sg-section-header" onclick="toggle(this)">
+      <div class="sg-section-label">
+        <span class="sg-badge sg-tag-purple">Vendor — Slide 5</span>
+        <span class="sg-section-title">Account Groups — the control mechanism for vendor records</span>
+      </div>
+      <span class="sg-chevron">▼</span>
+    </div>
+    <div class="sg-body">
+      <p class="sg-note">When creating a vendor master record you must specify an Account Group. This is not optional — it controls how the entire vendor record behaves.</p>
+      <p class="sg-note" style="font-weight:500">What the Account Group controls:</p>
+      <div class="char-grid">
+        <div class="char-card"><p class="char-name">Number assignment type</p><p class="char-desc">Internal (SAP assigns the vendor number automatically) vs. External (you enter the number manually).</p></div>
+        <div class="char-card"><p class="char-name">Number range</p><p class="char-desc">Which range of numbers the vendor master record will draw from. Configured in transaction OMSJ.</p></div>
+        <div class="char-card"><p class="char-name">One-time vendor flag</p><p class="char-desc">Some account groups designate a one-time/CPD vendor — a catch-all record used for vendors you only buy from once, avoiding a full master record for each.</p></div>
+        <div class="char-card"><p class="char-name">Field selection</p><p class="char-desc">Controls which fields appear on each screen and whether those fields are required, optional, or hidden. This is how different vendor types show different screens.</p></div>
+      </div>
+      <div class="info-block">
+        <p class="ib-label">PRE-DEFINED ACCOUNT GROUPS</p>
+        <p class="ib-text">SAP ships with standard account groups — e.g., LIEF (Lieferant = supplier in German) and KRED (Kreditor = creditor/accounts payable vendor). Your company may define additional groups in customizing for different vendor categories (domestic, international, intercompany, etc.).</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="sg-section">
+    <div class="sg-section-header" onclick="toggle(this)">
+      <div class="sg-section-label">
+        <span class="sg-badge sg-tag-purple">Vendor — Slides 6–8</span>
+        <span class="sg-section-title">Creating a Vendor Master — transaction XK01 and purchasing data fields</span>
+      </div>
+      <span class="sg-chevron">▼</span>
+    </div>
+    <div class="sg-body">
+      <p class="sg-note">Transaction <strong>XK01</strong> creates a vendor master centrally — meaning it creates all three levels (General, Company Code, Purchasing Org) in one flow. The initial screen requires: Vendor Number, Company Code, Purchasing Organization, and Account Group. The Company Code and Purchasing Org fields determine which screens appear.</p>
+      <div class="info-block">
+        <p class="ib-label">TEMPLATE OPTION</p>
+        <p class="ib-text">You can use an existing vendor as a template on the initial screen. SAP copies the template's data into the new record, which you then adjust. This speeds up creating similar vendors significantly.</p>
+      </div>
+      <p class="sg-note" style="font-weight:500;margin-top:10px">Key Purchasing Data fields (slide 8) — fields you'll see on POs:</p>
+      <div class="char-grid">
+        <div class="char-card"><p class="char-name">Auto PO indicator</p><p class="char-desc">If checked, purchase orders can be generated automatically when requisitions are converted. Reduces manual buyer intervention.</p></div>
+        <div class="char-card"><p class="char-name">Acknowledgement required</p><p class="char-desc">If set, the vendor must send a PO acknowledgement. SAP tracks this and flags POs where confirmation hasn't been received.</p></div>
+        <div class="char-card"><p class="char-name">ABC Indicator</p><p class="char-desc">Categorizes the vendor as A (most important), B (moderate), or C (low importance) to the organization. Used for vendor management prioritization.</p></div>
+        <div class="char-card"><p class="char-name">Purchasing Group</p><p class="char-desc">The buyer or buying team responsible for dealings with this vendor. A principal channel for the company's purchasing activities.</p></div>
+        <div class="char-card"><p class="char-name">Planned delivery time</p><p class="char-desc">Number of calendar days to obtain material/service from this vendor. Used by MRP for scheduling and determining order dates.</p></div>
+        <div class="char-card"><p class="char-name">Price marking</p><p class="char-desc">Indicates a price marking agreement with the vendor — the vendor marks prices directly on goods or delivery notes.</p></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="sg-section">
+    <div class="sg-section-header" onclick="toggle(this)">
+      <div class="sg-section-label">
+        <span class="sg-badge sg-tag-purple">Vendor — Slide 9</span>
+        <span class="sg-section-title">Partner Functions — one vendor, multiple roles</span>
+      </div>
+      <span class="sg-chevron">▼</span>
+    </div>
+    <div class="sg-body">
+      <p class="sg-note">A vendor doesn't always play just one role in a transaction. Partner Functions let you split those roles across different business entities. This is part of the Purchasing Organization data section of the vendor master.</p>
+      <div class="kv-grid">
+        <div class="kv-card hi"><p class="kv-label">Order Recipient (Ordering Address)</p><p class="kv-val">Where the PO is sent</p><p class="kv-desc">May be a different address than the vendor's main address — e.g., a procurement office rather than the head office.</p></div>
+        <div class="kv-card hi"><p class="kv-label">Supplier of Goods (Goods Supplier)</p><p class="kv-val">Who physically delivers the goods</p><p class="kv-desc">May differ from who invoices you — e.g., goods come from a warehouse while the invoice comes from the corporate HQ.</p></div>
+        <div class="kv-card hi"><p class="kv-label">Invoicing Party</p><p class="kv-val">Who sends the invoice</p><p class="kv-desc">A parent company may invoice on behalf of a subsidiary. The invoicing party is who you match in MIRO.</p></div>
+        <div class="kv-card hi"><p class="kv-label">Payee</p><p class="kv-val">Who receives the payment</p><p class="kv-desc">Payment may go to a factor (a financial intermediary) rather than the vendor directly. Defined in the FI payment run.</p></div>
+      </div>
+      <div class="info-block">
+        <p class="ib-label">PRACTICAL SCENARIO</p>
+        <p class="ib-text">A multinational supplier might have: PO sent to their UK procurement office (ordering address), goods shipped from their Poland warehouse (goods supplier), invoice raised by their German HQ (invoicing party), and payment collected by their Dutch finance entity (payee). Partner functions handle all of this in one vendor master.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="sg-section">
+    <div class="sg-section-header" onclick="toggle(this)">
+      <div class="sg-section-label">
+        <span class="sg-badge sg-tag-purple">Vendor — Slides 10–18</span>
+        <span class="sg-section-title">Vendor Master configuration (system walkthrough)</span>
+      </div>
+      <span class="sg-chevron">▼</span>
+    </div>
+    <div class="sg-body">
+      <p class="sg-note">Slides 10–18 are a system walkthrough covering the configuration steps behind vendor master setup. This is SPRO config — not day-to-day end-user work, but you need to understand what exists behind the scenes.</p>
+      <div class="char-grid">
+        <div class="char-card"><p class="char-name">Define Account Group</p><p class="char-desc">Path: SPRO → Logistics General → Business Partner → Vendor → Control → Define Account Group. Creates the account group that controls field selection and number ranges.</p></div>
+        <div class="char-card"><p class="char-name">Define Number Ranges</p><p class="char-desc">T-code: OMSJ. Path: SPRO → ... → Define number ranges for vendor master records. Sets the numeric ranges vendors are assigned to per account group.</p></div>
+        <div class="char-card"><p class="char-name">Assign Number Ranges to Account Group</p><p class="char-desc">Links the number range to the specific account group so SAP knows which range to pull from when creating a new vendor.</p></div>
+        <div class="char-card"><p class="char-name">Define Partner Functions</p><p class="char-desc">Path: SPRO → Materials Management → Purchasing → Partner Determination → Partner Roles → Define Partner Roles. Sets up which partner roles exist (VN = vendor, GS = goods supplier, etc.).</p></div>
+        <div class="char-card"><p class="char-name">Define Partner Schema</p><p class="char-desc">Path: SPRO → Materials Management → Purchasing → Partner Determination → Partner settings in vendor master record → Define Partner Schema. Controls which partner functions are mandatory or optional for a vendor master.</p></div>
+        <div class="char-card"><p class="char-name">Define Terms of Payment</p><p class="char-desc">Also configured in SPRO — sets up payment terms (e.g. Net 30, 2/10 Net 30) that can be assigned to a vendor and auto-populated on POs.</p></div>
+      </div>
+      <div class="warn-block">
+        <p class="wt-label">ECC vs S/4HANA — VENDOR MASTER CHANGE</p>
+        <p class="wt-text">In S/4HANA, the Vendor Master has been merged with the Business Partner (BP) concept. Transaction XK01 still works, but behind the scenes the data is stored in the Business Partner model. The navigation path SPRO → Business Partner replaces the old Vendor-specific config path. Functionally the data fields are the same — the architecture is different.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="sg-section">
+    <div class="sg-section-header" onclick="toggle(this)">
+      <div class="sg-section-label">
+        <span class="sg-badge sg-tag-amber">Vendor — Bonus</span>
+        <span class="sg-section-title">Vendor Master transaction codes reference</span>
+      </div>
+      <span class="sg-chevron">▼</span>
+    </div>
+    <div class="sg-body">
+      <p class="sg-note" style="font-weight:500">End-user transactions</p>
+      <div class="tcode-row"><span class="tcode">XK01</span><span class="tcode-desc">Create Vendor Master (Central — all three levels at once)</span></div>
+      <div class="tcode-row"><span class="tcode">XK02</span><span class="tcode-desc">Change Vendor Master (Central)</span></div>
+      <div class="tcode-row"><span class="tcode">XK03</span><span class="tcode-desc">Display Vendor Master (Central)</span></div>
+      <div class="tcode-row"><span class="tcode">MK01</span><span class="tcode-desc">Create Vendor (Purchasing Org data only)</span></div>
+      <div class="tcode-row"><span class="tcode">FK01</span><span class="tcode-desc">Create Vendor (Company Code / FI data only)</span></div>
+      <div class="tcode-row"><span class="tcode">XK05</span><span class="tcode-desc">Block/Unblock Vendor (Central)</span></div>
+      <div class="tcode-row"><span class="tcode">XK06</span><span class="tcode-desc">Flag Vendor for Deletion (Central)</span></div>
+      <hr class="sg-divider">
+      <p class="sg-note" style="font-weight:500">Configuration transactions</p>
+      <div class="tcode-row"><span class="tcode">OMSJ</span><span class="tcode-desc">Define number ranges for vendor master records</span></div>
+    </div>
+  </div>
+
+
+  <!-- ─── MATERIAL MASTER ─── -->
+  <div class="sg-section">
+    <div class="sg-section-header" onclick="toggle(this)">
+      <div class="sg-section-label">
+        <span class="sg-badge sg-tag-purple">Material — Slides 1–3</span>
+        <span class="sg-section-title">Material Master — what it is and why it's central</span>
+      </div>
+      <span class="sg-chevron">▼</span>
+    </div>
+    <div class="sg-body">
+      <p class="sg-note">The Material Master record contains information on all materials that a company procures, produces, stores, or sells. It is the company's main source of material-specific data and is used by ALL components in the ECC logistics system — not just MM.</p>
+      <div class="char-grid">
+        <div class="char-card"><p class="char-name">Prevents data redundancy</p><p class="char-desc">All material data lives in one record. Before ERP, Purchasing, Warehouse, and Accounting all maintained separate spreadsheets for the same material — with different names, units, and codes.</p></div>
+        <div class="char-card"><p class="char-name">Each department has its own view</p><p class="char-desc">Since multiple departments use the material master, it is sub-divided into views. A warehouse manager sees storage data; a buyer sees purchasing data; a cost accountant sees valuation data.</p></div>
+        <div class="char-card"><p class="char-name">Purchasing data</p><p class="char-desc">Used for ordering — vendor-specific info, order unit, delivery tolerance, purchasing group, info record links.</p></div>
+        <div class="char-card"><p class="char-name">Inventory data</p><p class="char-desc">Used for posting goods movements and managing physical inventory — unit of measure, storage conditions, batch management.</p></div>
+        <div class="char-card"><p class="char-name">Accounting data</p><p class="char-desc">Used for material valuation — valuation class, price control (standard vs. moving average), current period price.</p></div>
+        <div class="char-card"><p class="char-name">MRP data</p><p class="char-desc">Used for material requirements planning — MRP type, reorder point, safety stock, planned delivery time, lot size.</p></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="sg-section">
+    <div class="sg-section-header" onclick="toggle(this)">
+      <div class="sg-section-label">
+        <span class="sg-badge sg-tag-purple">Material — Slides 4–6</span>
+        <span class="sg-section-title">Material Master creation flow — initial screen fields</span>
+      </div>
+      <span class="sg-chevron">▼</span>
+    </div>
+    <div class="sg-body">
+      <p class="sg-note">Creating a material master record (MM01) walks through a specific screen sequence. The first screen contains control fields that determine everything that follows.</p>
+      <div class="flow-row">
+        <div class="flow-step blue">Initial Screen<br><small>Material #, Industry Sector, Material Type</small></div><span class="flow-arrow">→</span>
+        <div class="flow-step blue">Select Views<br><small>Which user dept views to maintain</small></div><span class="flow-arrow">→</span>
+        <div class="flow-step blue">Org Levels<br><small>Plant, Storage Location</small></div><span class="flow-arrow">→</span>
+        <div class="flow-step green">Data Screens<br><small>Enter actual material data</small></div>
+      </div>
+      <p class="slide-note">Note: The screen sequence can be changed in configuration. This is the standard sequence.</p>
+      <div class="kv-grid">
+        <div class="kv-card hi">
+          <p class="kv-label">Industry Sector</p>
+          <p class="kv-val">Control field — cannot be changed after creation</p>
+          <p class="kv-desc">Defines which screens appear and their order, plus which industry-specific fields show. Examples: M = Mechanical Engineering, C = Chemical, P = Pharmaceutical. If your company needs a custom sector, it can be defined in customizing.</p>
+        </div>
+        <div class="kv-card hi">
+          <p class="kv-label">Material Type</p>
+          <p class="kv-val">Groups materials with the same basic attributes</p>
+          <p class="kv-desc">Controls number assignment, procurement type, field selection, which user departments are relevant, and account determination (which G/L accounts get hit). Can be changed via MMAM but rarely is.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="sg-section">
+    <div class="sg-section-header" onclick="toggle(this)">
+      <div class="sg-section-label">
+        <span class="sg-badge sg-tag-purple">Material — Slides 7–9</span>
+        <span class="sg-section-title">Material Types — ROH, HALB, FERT and control functions</span>
+      </div>
+      <span class="sg-chevron">▼</span>
+    </div>
+    <div class="sg-body">
+      <p class="sg-note">Material types group materials with the same basic attributes. The type controls how the system behaves for that material across procurement, production, inventory management, and accounting.</p>
+      <div class="kv-grid3">
+        <div class="kv-card hi"><p class="kv-label">ROH</p><p class="kv-val">Raw Materials</p><p class="kv-desc">Externally procured. Consumed in production. Inventory-managed. Stock accounts updated.</p></div>
+        <div class="kv-card"><p class="kv-label">HALB</p><p class="kv-val">Semi-Finished Products</p><p class="kv-desc">Can be procured or produced internally. Intermediate stage in the production process.</p></div>
+        <div class="kv-card"><p class="kv-label">FERT</p><p class="kv-val">Finished Products</p><p class="kv-desc">Manufactured internally. Sold to customers via SD. Costing and valuation are critical here.</p></div>
+        <div class="kv-card"><p class="kv-label">HAWA</p><p class="kv-val">Trading Goods</p><p class="kv-desc">Bought and sold without any internal manufacturing. Different account determination than ROH.</p></div>
+        <div class="kv-card"><p class="kv-label">DIEN</p><p class="kv-val">Services</p><p class="kv-desc">Non-stock material type for service procurement. No physical goods receipt — only invoice verification.</p></div>
+        <div class="kv-card"><p class="kv-label">NLAG</p><p class="kv-val">Non-Stock Material</p><p class="kv-desc">Procured for direct consumption, not warehoused. No quantity updating in inventory — only value posting.</p></div>
+      </div>
+      <p class="sg-note" style="font-weight:500;margin-top:10px">What Material Type controls (slide 7):</p>
+      <div class="char-grid">
+        <div class="char-card"><p class="char-name">Number assignment</p><p class="char-desc">Internal (auto-assigned) vs. external (manually entered). ROH is usually internal; some companies assign FERT externally.</p></div>
+        <div class="char-card"><p class="char-name">Procurement type</p><p class="char-desc">External procurement (from vendors) vs. in-house production vs. both. Controls what MRP generates — PREQs or planned orders.</p></div>
+        <div class="char-card"><p class="char-name">Inventory management</p><p class="char-desc">Along with plant, determines whether quantity and/or value changes are tracked in the material master and stock accounts.</p></div>
+        <div class="char-card"><p class="char-name">Account determination</p><p class="char-desc">Controls which G/L accounts are posted when the material is received into or issued from stock. Connects MM to FI automatically.</p></div>
+      </div>
+      <div class="info-block">
+        <p class="ib-label">INTERVIEW/KNOWLEDGE CHECK QUESTION</p>
+        <p class="ib-text">The slide's knowledge check asks: "Discuss the differences between HAWA and ROH material." HAWA (trading goods) is bought and resold without manufacturing — it hits different G/L accounts and has no BOM. ROH (raw material) is consumed in production via goods issues to production orders. The material type drives all of this difference automatically.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="sg-section">
+    <div class="sg-section-header" onclick="toggle(this)">
+      <div class="sg-section-label">
+        <span class="sg-badge sg-tag-purple">Material — Slides 11–17</span>
+        <span class="sg-section-title">Material Master views — all user department data screens</span>
+      </div>
+      <span class="sg-chevron">▼</span>
+    </div>
+    <div class="sg-body">
+      <p class="sg-note">The material master is organized into views — each belonging to a user department. You select which views to maintain when creating the record. Some views are at client level (valid everywhere), some are plant-level, some are storage location-level.</p>
+      <table class="view-table">
+        <thead><tr><th>View</th><th>Org Level</th><th>Key data</th></tr></thead>
+        <tbody>
+          <tr><td class="vt-hi">Basic Data</td><td>Client</td><td>Material description, base unit of measure, material group, weight, dimensions. Used by all departments — entered first, referenced by all other views.</td></tr>
+          <tr><td>Classification</td><td>Client</td><td>Assigns the material to classes with common characteristics. Used for batch classification, variant configuration, and catalog searches.</td></tr>
+          <tr><td class="vt-hi">Purchasing</td><td>Client / Plant</td><td>Order unit, purchasing group, over/under-delivery tolerance, goods receipt settings, shipping instructions. Not all fields are plant-specific — depends on whether a plant is entered.</td></tr>
+          <tr><td class="vt-hi">MRP 1–4</td><td>Plant</td><td>MRP type, reorder point, safety stock, lot size, planned delivery time, scheduling margin. Multiple MRP tabs for different planning parameters.</td></tr>
+          <tr><td class="vt-hi">Accounting 1–2</td><td>Plant or Company Code</td><td>Valuation class, price control (V = moving average, S = standard price), current period price. FI posts to G/L based on valuation class.</td></tr>
+          <tr><td>Costing 1–2</td><td>Plant</td><td>Costing data — often mirrors Accounting view. Data entered in Costing first appears as default on Accounting screen (and vice versa).</td></tr>
+          <tr><td>Forecasting</td><td>Plant</td><td>Consumption values, forecast parameters. Used to simulate forecasts. Forecast values update when material master is saved; MRP parameters (reorder point, safety stock) adjust dynamically.</td></tr>
+          <tr><td>Plant Data / Storage 1–2</td><td>Plant / SLOC</td><td>Storage conditions, batch management, shelf life. Select plant stock or storage location stock views to see current stock levels.</td></tr>
+          <tr><td>Sales (Sales Org 1–2, General/Plant)</td><td>Sales Org / Plant</td><td>Pricing conditions, delivery data, plant-specific sales settings. SD-driven.</td></tr>
+          <tr><td>Quality Management</td><td>Plant</td><td>Inspection data — triggers quality inspection lots on goods receipt if configured.</td></tr>
+          <tr><td>Work Scheduling</td><td>Plant</td><td>Production scheduling parameters. PP-driven.</td></tr>
+          <tr><td>Production Resources/Tools</td><td>Plant</td><td>For materials used as tools/resources in production rather than consumed.</td></tr>
+        </tbody>
+      </table>
+      <div class="info-block">
+        <p class="ib-label">BASIC DATA IMPORTANT FIELDS (slide 18)</p>
+        <p class="ib-text"><strong>Material Description</strong> — up to 40 characters. Searchable. <strong>Base Unit of Measure</strong> — the unit stocks are managed in (EA, KG, L, M, etc.). All other units (order unit, issue unit) must have conversion factors defined against this base unit. <strong>Material Group</strong> — groups materials with the same attributes for reporting and purchasing purposes.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="sg-section">
+    <div class="sg-section-header" onclick="toggle(this)">
+      <div class="sg-section-label">
+        <span class="sg-badge sg-tag-purple">Material — Slide 19</span>
+        <span class="sg-section-title">Accounting view — Valuation Category and Valuation Class</span>
+      </div>
+      <span class="sg-chevron">▼</span>
+    </div>
+    <div class="sg-body">
+      <p class="sg-note">The Accounting view fields are some of the most important in the entire material master because they directly control how SAP posts to the General Ledger in FI. Errors here = wrong accounting entries on every goods movement.</p>
+      <div class="kv-grid">
+        <div class="kv-card hi">
+          <p class="kv-label">Valuation Category</p>
+          <p class="kv-val">Determines if stocks are valued together or separately (Split Valuation)</p>
+          <p class="kv-desc">Split Valuation allows the same material to carry different prices for different stock origins (e.g., internally produced vs. externally procured batches of the same raw material). The category sets the criterion for splitting (by batch, by origin, etc.).</p>
+        </div>
+        <div class="kv-card hi">
+          <p class="kv-label">Valuation Class</p>
+          <p class="kv-val">Links the material to a G/L account group</p>
+          <p class="kv-desc">Allows grouping of materials so you don't need a separate stock G/L account for every single material. All raw materials (ROH) might use valuation class 3000, which maps to G/L account 140000 (Raw Material Stock). Allowed valuation classes depend on the material type — configured in customizing.</p>
+        </div>
+      </div>
+      <div class="info-block">
+        <p class="ib-label">ACCOUNT DETERMINATION CHAIN</p>
+        <p class="ib-text">Material Type → Valuation Class → Account Determination → G/L Account. When a goods receipt posts, SAP uses this chain to know exactly which stock account to debit and which GR/IR account to credit — automatically, without any human intervention. Getting the valuation class wrong means every transaction posts to the wrong accounts.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="sg-section">
+    <div class="sg-section-header" onclick="toggle(this)">
+      <div class="sg-section-label">
+        <span class="sg-badge sg-tag-purple">Material — Slide 24</span>
+        <span class="sg-section-title">Extending the Material Master to other views and org levels</span>
+      </div>
+      <span class="sg-chevron">▼</span>
+    </div>
+    <div class="sg-body">
+      <p class="sg-note">When a material is already in the system for one plant and a second plant or user department needs to use it, you don't create a new material master — you <strong>extend</strong> the existing one.</p>
+      <div class="flow-row">
+        <div class="flow-step">Material A<br><small>Purchasing · Plant 1000</small></div>
+        <span class="flow-arrow">→ extend view →</span>
+        <div class="flow-step blue">Material A<br><small>Purchasing · Plant 1000<br>Accounting · Plant 1000</small></div>
+        <span class="flow-arrow">→ extend to org level →</span>
+        <div class="flow-step green">Material A<br><small>All views · Plant 1000<br>All views · Plant 1200</small></div>
+      </div>
+      <p class="sg-note" style="margin-top:10px">Extensions work two ways: adding a new view for the same plant (e.g., Accounting view added after Purchasing was first created), or adding data for a new plant/storage location entirely. Both are done through MM01 — same transaction as creation, SAP detects the material already exists and extends it.</p>
+      <div class="info-block">
+        <p class="ib-label">PRACTICAL IMPLICATION</p>
+        <p class="ib-text">A material can only be procured for Plant X if the Purchasing view exists for Plant X. A material can only be stored at SLOC Y if the Plant Data/Storage view exists for SLOC Y. If a user tries to post a goods movement to a plant where the material master hasn't been extended, SAP will block the transaction.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="sg-section">
+    <div class="sg-section-header" onclick="toggle(this)">
+      <div class="sg-section-label">
+        <span class="sg-badge sg-tag-amber">Material — Bonus</span>
+        <span class="sg-section-title">Material Master transaction codes reference</span>
+      </div>
+      <span class="sg-chevron">▼</span>
+    </div>
+    <div class="sg-body">
+      <div class="tcode-row"><span class="tcode">MM01</span><span class="tcode-desc">Create Material Master (also used for extending to new views/plants)</span></div>
+      <div class="tcode-row"><span class="tcode">MM02</span><span class="tcode-desc">Change Material Master</span></div>
+      <div class="tcode-row"><span class="tcode">MM03</span><span class="tcode-desc">Display Material Master</span></div>
+      <div class="tcode-row"><span class="tcode">MM04</span><span class="tcode-desc">Display Changes (audit trail for the material master)</span></div>
+      <div class="tcode-row"><span class="tcode">MM06</span><span class="tcode-desc">Flag Material for Deletion</span></div>
+      <div class="tcode-row"><span class="tcode">MM11</span><span class="tcode-desc">Schedule Creation of Material (planned creation for future date)</span></div>
+      <div class="tcode-row"><span class="tcode">MM16</span><span class="tcode-desc">Schedule Material for Deletion</span></div>
+      <div class="tcode-row"><span class="tcode">MM17</span><span class="tcode-desc">Mass Maintenance (change a field across many materials at once)</span></div>
+      <div class="tcode-row"><span class="tcode">MMAM</span><span class="tcode-desc">Change Material Type (use with extreme caution — rare)</span></div>
+      <div class="tcode-row"><span class="tcode">MM50</span><span class="tcode-desc">Extend material view(s) to additional plants/views</span></div>
+      <div class="tcode-row"><span class="tcode">MM60</span><span class="tcode-desc">Material List</span></div>
+      <div class="tcode-row"><span class="tcode">MMBE</span><span class="tcode-desc">Stock Overview — see quantities across all org levels</span></div>
+    </div>
+  </div>
+
+
+  <!-- ─── PURCHASING INFO RECORD ─── -->
+  <div class="sg-section">
+    <div class="sg-section-header" onclick="toggle(this)">
+      <div class="sg-section-label">
+        <span class="sg-badge sg-tag-purple">Info Record — Slides 1–2</span>
+        <span class="sg-section-title">Purchasing Info Record — what it is and what it does</span>
+      </div>
+      <span class="sg-chevron">▼</span>
+    </div>
+    <div class="sg-body">
+      <p class="sg-note">The Purchasing Info Record (PIR) is the link between a vendor and a material. It stores the purchasing-specific conditions that apply when that vendor supplies that material — primarily price and delivery time. When a PO is created referencing a vendor and material that have an info record, SAP auto-populates the price and conditions automatically.</p>
+      <div class="kv-grid">
+        <div class="kv-card hi">
+          <p class="kv-label">What it stores</p>
+          <p class="kv-val">Vendor + Material + Purchasing Org + (optionally) Plant</p>
+          <p class="kv-desc">The combination of these determines what data the info record holds. You can have an info record at Purchasing Org level (applies to all plants) or at Plant level (applies only to that plant).</p>
+        </div>
+        <div class="kv-card hi">
+          <p class="kv-label">Primary purpose</p>
+          <p class="kv-val">Price determination for POs</p>
+          <p class="kv-desc">When creating a PO for vendor X and material Y, SAP looks for an info record and pulls the price conditions from it. No manual price entry needed for standard items.</p>
+        </div>
+        <div class="kv-card">
+          <p class="kv-label">General Data</p>
+          <p class="kv-val">Valid at client level</p>
+          <p class="kv-desc">Planned delivery time, tolerance data, order quantity units, last purchase order reference.</p>
+        </div>
+        <div class="kv-card">
+          <p class="kv-label">Purchasing Organization Data</p>
+          <p class="kv-val">Purchasing Org or Plant level</p>
+          <p class="kv-desc">Price (conditions), validity dates, remaining quantity. Can be maintained with or without a plant — determines scope of application.</p>
+        </div>
+      </div>
+      <div class="info-block">
+        <p class="ib-label">ORG LEVEL SCOPE</p>
+        <p class="ib-text">A useful scenario: create an Info Record at Purchasing Org level (no plant) when the price applies across all plants — e.g., a corporate-negotiated rate for a commodity. Create at Plant level when each plant has a different negotiated price with the same vendor for the same material. The system checks plant-level first, then falls back to Purchasing Org level.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="sg-section">
+    <div class="sg-section-header" onclick="toggle(this)">
+      <div class="sg-section-label">
+        <span class="sg-badge sg-tag-purple">Info Record — Slides 3–6</span>
+        <span class="sg-section-title">InfoUpdate — how info records stay current automatically</span>
+      </div>
+      <span class="sg-chevron">▼</span>
+    </div>
+    <div class="sg-body">
+      <p class="sg-note">The InfoUpdate function means info records don't have to be maintained manually every time conditions change. Purchasing documents can create and update info records automatically when they're processed.</p>
+      <div class="char-grid">
+        <div class="char-card"><p class="char-name">Quotations (RFQ responses)</p><p class="char-desc">Only quotations update conditions (price) in the info record. When a vendor responds to an RFQ with their price, and you accept it, the conditions flow into the info record automatically.</p></div>
+        <div class="char-card"><p class="char-name">Purchase Orders</p><p class="char-desc">POs save a reference to the last used document but do NOT update conditions/price. The info record tracks which PO was last issued for this vendor-material combination.</p></div>
+        <div class="char-card"><p class="char-name">Contract Release Orders</p><span class="char-desc">Like POs — saves the last document reference. Useful for tracking call-offs against an outline agreement.</span></div>
+        <div class="char-card"><p class="char-name">Scheduling Agreements</p><p class="char-desc">Also saves last document reference. Info records can link to scheduling agreement lines for regular supply arrangements.</p></div>
+      </div>
+      <div class="warn-block">
+        <p class="wt-label">KEY RULE — PRICE UPDATE</p>
+        <p class="wt-text">Only quotations update price conditions in info records. Creating a PO at a different price does NOT update the info record conditions. If a vendor raises prices, you must either get a new quotation or manually update the info record conditions.</p>
+      </div>
+      <div class="info-block">
+        <p class="ib-label">WHERE DOES SAP LOOK FOR CONDITIONS? (knowledge check)</p>
+        <p class="ib-text">When creating a PO, SAP searches for conditions in this order: (1) Plant-level info record for the Purchasing Org + Plant + Vendor + Material combination. (2) Purchasing Org-level info record (no plant) for the same vendor + material. (3) If neither exists, SAP leaves the price blank and the buyer must enter it manually.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="sg-section">
+    <div class="sg-section-header" onclick="toggle(this)">
+      <div class="sg-section-label">
+        <span class="sg-badge sg-tag-amber">Info Record — Bonus</span>
+        <span class="sg-section-title">Purchasing Info Record transaction codes</span>
+      </div>
+      <span class="sg-chevron">▼</span>
+    </div>
+    <div class="sg-body">
+      <div class="tcode-row"><span class="tcode">ME11</span><span class="tcode-desc">Create Purchasing Info Record</span></div>
+      <div class="tcode-row"><span class="tcode">ME12</span><span class="tcode-desc">Change Purchasing Info Record</span></div>
+      <div class="tcode-row"><span class="tcode">ME13</span><span class="tcode-desc">Display Purchasing Info Record</span></div>
+      <div class="tcode-row"><span class="tcode">ME15</span><span class="tcode-desc">Flag Info Record for Deletion</span></div>
+      <div class="tcode-row"><span class="tcode">ME1M</span><span class="tcode-desc">Info Records by Material (list view)</span></div>
+      <div class="tcode-row"><span class="tcode">ME1L</span><span class="tcode-desc">Info Records by Vendor (list view)</span></div>
+      <div class="tcode-row"><span class="tcode">ME1P</span><span class="tcode-desc">Purchase Order Price History (tracks price changes over time)</span></div>
+      <hr class="sg-divider">
+      <div class="ok-block">
+        <p class="ok-label">HOW THE THREE MM MASTER DATA RECORDS WORK TOGETHER</p>
+        <p class="ok-text">Vendor Master tells SAP who the supplier is and how to pay them. Material Master tells SAP what the item is, how to store it, and how to value it. Purchasing Info Record tells SAP the specific price and conditions when that vendor supplies that material. A complete PO requires all three to be in place — the vendor master for vendor details, the material master for item details, and the info record for automatic price population.</p>
+      </div>
+    </div>
+  </div>
+
 </div>
 
 <script>
@@ -1028,3 +1585,4 @@
     document.getElementById('progress').style.width = Math.round((open/total)*100) + '%';
   }
 </script>
+</html>
